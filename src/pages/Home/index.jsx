@@ -66,7 +66,7 @@ export default function Home() {
   }
 
   const onEmptyWishList = (product) => {
-    setCartItems(cartItems.filter((x) => x.id = product.id));
+    setWishList(WishList.filter((x) => x.id = product.id));
   }
 
   const onRemove = (product) => {
