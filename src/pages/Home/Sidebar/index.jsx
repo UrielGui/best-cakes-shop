@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import * as Styled from './Styled';
 
 // Context
@@ -16,6 +16,11 @@ export default function Sidebar() {
     let { sortOption, setSortOption, sortOptionValue1, setSortOptionValue1, sortOptionValue2, setSortOptionValue2 } = useContext(ProductSortOption);
 
     const { setSearchProduct } = useContext(SearchProductName);
+    const refSearch = useRef(null);
+
+    const onSearchButton = () => {
+      refSearch.current.focus();
+    };
 
     return (
       <Styled.Sidebar>
@@ -29,10 +34,11 @@ export default function Sidebar() {
                 <Styled.flexSearch>
                 <Styled.InputSearch 
                   type="text"
+                  ref={refSearch}
                   placeholder="Pesquise aqui..."
                   onChange={event => { setSearchProduct(event.target.value); }}
                 />
-                <Styled.ButtonSearch>
+                <Styled.ButtonSearch onClick={onSearchButton} >
                   <BsSearch style={{color: "#fff"}} />
                 </Styled.ButtonSearch>
                 </Styled.flexSearch>

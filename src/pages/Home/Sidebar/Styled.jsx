@@ -48,6 +48,9 @@ export const flexSearch = styled.div`
 export const InputSearch = styled.input`
     width: 100%;
     padding: 5px;
+    :focus {
+        border: 2px #e91e63 solid;
+    }
 `
 
 export const ButtonSearch = styled.button`
