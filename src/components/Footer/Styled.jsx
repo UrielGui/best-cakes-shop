@@ -10,11 +10,7 @@ export const FooterDiv = styled.div`
     padding-top: 10px;
     padding-bottom: 10px;
     flex-wrap: wrap;
-`
-
-export const FooterCopy = styled.span`
-    flex-grow: 2;
-    font-size: 16px;
+    justify-content: flex-end;
 `
 
 export const FooterAuthor = styled.span`

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './Styled';
-import { Container } from '../../styles/globals';
+import { Container } from '../../styles/Globals';
 
 export default function Footer() {
     return (
@@ -8,8 +8,7 @@ export default function Footer() {
             <Styled.FooterStyle>
                 <Container>
                     <Styled.FooterDiv>
-                    <Styled.FooterCopy>© 2021</Styled.FooterCopy>
-                    <Styled.FooterAuthor>Desenvolvido por: Uriel Guimarães</Styled.FooterAuthor>
+                    <Styled.FooterAuthor>© 2021 - Desenvolvido por: Uriel Guimarães</Styled.FooterAuthor>
                     </Styled.FooterDiv>
                 </Container>
             </Styled.FooterStyle>

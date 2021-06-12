@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 
@@ -33,12 +32,12 @@ export default createGlobalStyle`
 	
 	.content {
 		grid-area: content;
+        min-height: 100vh;
 	}
 	
 	.sidenav {
 		grid-area: sidenav;
 	}
-	
 	
 	.footer {
 		grid-area: footer;
@@ -54,9 +53,8 @@ export default createGlobalStyle`
         "footer footer";
 	}
     
-
     body {
-        background-image: linear-gradient(270deg,#772064 20%,#ffffff 48%);
+        background: linear-gradient(270deg,#772064 20%,#ffffff 48%);
     }
 
     a {
@@ -86,13 +84,6 @@ export default createGlobalStyle`
         border-radius: 10px;
     }
 
-    .wishlist-toast {
-        background: red;
-        text-align: center;
-        border-radius: 10px;
-    }
-
-
     .Toastify__toast-body, .Toastify__toast {
         padding: 0;
         min-height: 0px;
@@ -101,8 +92,7 @@ export default createGlobalStyle`
     .Toastify__toast-container {
         width: 250px;
     }
-
-
+    
 `;
 
 export const Container = styled.div`

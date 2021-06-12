@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Sidebar = styled.section`
-    background: #772064;
+    background: linear-gradient(180deg,#772064 38%,#3a0f2e 61%);
     height: 100%;
     padding-top: 20px;
     padding-right: 20px;

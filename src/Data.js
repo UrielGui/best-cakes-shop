@@ -9,7 +9,7 @@ const data = {
     {
       id: '2',
       name: 'Chocolate com flores',
-      price: 14000,
+      price: 22000,
       image: 'https://i.imgur.com/EJn4EKb.jpg',
     },
     {
@@ -21,7 +21,7 @@ const data = {
     {
       id: '4',
       name: 'De figo e champanhe',
-      price: 28000,
+      price: 68000,
       image: 'https://i.imgur.com/KbUlZvp.jpg',
     },
     {

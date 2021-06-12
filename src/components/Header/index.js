@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as Styled from './Styled';
-import { Container } from '../../styles/globals';
+import { Container } from '../../styles/Globals';
 import Basket from './Basket';
 import WishList from './WishList';
 import { FaShoppingBasket } from "react-icons/fa";
