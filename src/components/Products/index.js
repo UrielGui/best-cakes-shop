@@ -4,7 +4,6 @@ import Product from './SingleProduct';
 import { ProductSortOption } from '../../contexts/';
 import { SearchProductName } from '../../contexts/';
 
-import { Container } from '../../styles/globals';
 import * as Styled from './Styled';
 
 export default function Main(props) {
@@ -25,7 +24,7 @@ export default function Main(props) {
         ));
 
     return (
-        <Container>
+        <React.Fragment>
             <div className="content">
                 <Styled.Products>
                     {items}
@@ -35,6 +34,6 @@ export default function Main(props) {
                     }
                 </Styled.Products>
             </div>
-        </Container>
+        </React.Fragment>
     );
 }

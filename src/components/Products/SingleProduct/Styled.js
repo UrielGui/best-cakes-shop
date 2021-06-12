@@ -7,8 +7,9 @@ export const Product = styled.div`
     border-radius: 20px;
     box-shadow: 0 0 3px #0b012185, 0 0 5px #0b012185, 0 0 15px #0b012185, 0 0 40px #0b012185;
     transition: all 0.4s ease-in-out;
-    width: 30%;
+    width: 18rem;
     margin-bottom: 40px;
+    margin: 20px
 `;
 
 export const DetailsProduct = styled.div`

@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const Sidebar = styled.section`
-
+    background: #772064;
+    height: 100%;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
 `
-
 export const SidebarContainer = styled.div`
     background-color: azure;
-    margin-top: 20px;
-    margin-left: 20px;
     border-radius: 20px;
+    margin-bottom: 20px;
 `
 
 export const SidebarRow = styled.div`

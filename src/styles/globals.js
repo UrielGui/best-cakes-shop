@@ -10,24 +10,22 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
-        ::-webkit-scrollbar {
-        width: 13px;
-        }
-        ::-webkit-scrollbar-track {
-        background: #ffffff;
-        }
-        ::-webkit-scrollbar-thumb {
-        background: #b10f84;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-        background: #a01379;
-        }
+    ::-webkit-scrollbar {
+    width: 13px;
+    }
+    ::-webkit-scrollbar-track {
+    background: #ffffff;
+    }
+    ::-webkit-scrollbar-thumb {
+    background: #b10f84;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+    background: #a01379;
+    }
 
-        	/* Grid */
 	.grid {
 		display: grid;
 	}
-	
 	
 	.nav {
 		grid-area: nav;
@@ -48,7 +46,7 @@ export default createGlobalStyle`
 	}
 	
 	.grid-template-areas {
-		grid-template-columns: 15% 85% 0%;
+		grid-template-columns: 20% 80% 0%;
         grid-template-rows: auto;
         grid-template-areas:
         "nav nav"
@@ -58,8 +56,7 @@ export default createGlobalStyle`
     
 
     body {
-        background: #772060;
-        background-image: linear-gradient(270deg,#772064 12%,#ffffff 76%, #fff 73%, #772064 72%)
+        background-image: linear-gradient(270deg,#772064 20%,#ffffff 48%);
     }
 
     a {
