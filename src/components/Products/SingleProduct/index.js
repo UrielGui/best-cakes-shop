@@ -23,7 +23,6 @@ export default function Product(props) {
         closeButton={false}
         hideProgressBar
         newestOnTop={false}
-        // toastClassName={props => props.cart === addCart ? "cart-toast" : "wishlist-toast"}
         closeOnClick={false}
         rtl={false}
         pauseOnFocusLoss={false}
@@ -38,14 +37,14 @@ export default function Product(props) {
 
       <Styled.ButtonsProduct>
 
-        <Styled.ButtonAddtoCart onClick={() => { onAdd(product), addCart(); }}>
+        <Styled.ButtonAddtoCart onClick={() => { onAdd(product); addCart(); }}>
           <Styled.AddtoCartIcon>
             <FaShoppingBasket />
           </Styled.AddtoCartIcon>
           <Styled.AddtoCartText> Adicionar ao carrinho</Styled.AddtoCartText>
         </Styled.ButtonAddtoCart>
 
-        <Styled.ButtonAddtoWishList onClick={() => { onAddFavorites(product), addWishList(); }}><FaRegHeart style={{ fontSize: "20px", color: "#fff" }} /></Styled.ButtonAddtoWishList>
+        <Styled.ButtonAddtoWishList onClick={() => { onAddFavorites(product); addWishList(); }}><FaRegHeart style={{ fontSize: "20px", color: "#fff" }} /></Styled.ButtonAddtoWishList>
       </Styled.ButtonsProduct>
 
     </Styled.Product>

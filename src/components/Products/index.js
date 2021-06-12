@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Product from './SingleProduct';
 
 import { ProductSortOption } from '../../contexts/';
@@ -6,20 +6,25 @@ import { SearchProductName } from '../../contexts/';
 
 import * as Styled from './Styled';
 
-export default function Main(props) {
+export default function Products(props) {
     const { products, onAdd, onAddFavorites } = props;
     const { searchProduct } = useContext(SearchProductName);
     const { sortOption, sortOptionValue1, sortOptionValue2 } = useContext(ProductSortOption);
 
-    const items = products.sort((a, b) => a[sortOption] > b[sortOption] ? sortOptionValue1 : sortOptionValue2).filter((val) => {
-        if (searchProduct === "") {
-            return val;
-        }
-        else if (val.name.toLowerCase().includes(searchProduct.toLocaleLowerCase())) {
-            return val;
-        }
-    })
-        .map((product) => (
+    const items = products.sort((a, b) => a[sortOption] > b[sortOption]
+        ? sortOptionValue1
+        : sortOptionValue2).filter(val => {
+            if (searchProduct === "") {
+                return val;
+            }
+            else if (val.name.toLowerCase().includes(searchProduct.toLocaleLowerCase())) {
+                return val;
+            }
+            else {
+                return null;
+            }
+        })
+        .map(product => (
             <Product key={product.id} product={product} onAdd={onAdd} onAddFavorites={onAddFavorites} />
         ));
 
