@@ -1,18 +1,46 @@
 import React, { useContext } from 'react';
 import * as Styled from './Styled';
+
+// Context
 import { ProductSortOption } from '../../../contexts';
+import { SearchProductName } from '../../../contexts';
+
+import { BsSearch } from "react-icons/bs";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { AiOutlineArrowUp } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 export default function Sidebar() {
-
     // eslint-disable-next-line no-unused-vars
-    let { sortOption, setSortOption, sortOptionValue1, setSortOptionValue1, sortOptionValue2, setSortOptionValue2 } = useContext(ProductSortOption)
+    let { sortOption, setSortOption, sortOptionValue1, setSortOptionValue1, sortOptionValue2, setSortOptionValue2 } = useContext(ProductSortOption);
+
+    const { setSearchProduct } = useContext(SearchProductName);
 
     return (
       <Styled.Sidebar>
+        
+        <Styled.SidebarContainer>
+              <Styled.SideBarTitleContainer borderRfull>
+              <Styled.SidebarRow>
+                <Styled.SideBarTitle mBottom>
+                  Pesquisar
+                </Styled.SideBarTitle>
+                <Styled.flexSearch>
+                <Styled.InputSearch 
+                  type="text"
+                  placeholder="Pesquise aqui..."
+                  onChange={event => { setSearchProduct(event.target.value); }}
+                />
+                <Styled.ButtonSearch>
+                  <BsSearch style={{color: "#fff"}} />
+                </Styled.ButtonSearch>
+                </Styled.flexSearch>
+
+                </Styled.SidebarRow>
+              </Styled.SideBarTitleContainer>
+              </Styled.SidebarContainer>
+        
           <Styled.SidebarContainer>
               <Styled.SideBarTitleContainer>
               <Styled.SidebarRow>

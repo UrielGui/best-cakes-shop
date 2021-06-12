@@ -18,9 +18,10 @@ export const SidebarRow = styled.div`
 export const SideBarTitleContainer = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-right: 10px;
     background-color: #3a0f2e;
     margin-bottom: 10px;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: ${props => props.borderRfull ? "20px 20px" : "20px 20px 0px 0px"};
 `
 
 export const SidebarContainerItem = styled.div`
@@ -34,6 +35,26 @@ export const FilterTextClick = styled.span `
 `
 
 export const SideBarTitle = styled.h4`
-    color: #fff;    
+    color: #fff;
+    margin-bottom: ${props => props.mBottom ? "10px" : ""};
 
+`
+
+export const flexSearch = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const InputSearch = styled.input`
+    width: 100%;
+    padding: 5px;
+`
+
+export const ButtonSearch = styled.button`
+    width: 100%;
+    padding: 5px;
+    background-color: #e91e63;
+    :hover {
+        opacity: 0.8;
+    }
 `

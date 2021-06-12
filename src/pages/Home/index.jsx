@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // Context
 import { ProductSortOption } from '../../contexts';
+import { SearchProductName } from '../../contexts';
 
 // Components
 import Header from '../../components/Header';
@@ -18,6 +19,7 @@ export default function Home() {
   const [sortOption, setSortOption] = useState("id");
   const [sortOptionValue1, setSortOptionValue1] = useState("1")
   const [sortOptionValue2, setSortOptionValue2] = useState("-1");
+  const [searchProduct, setSearchProduct] = useState('');
 
   const [cartItems, setCartItems] = useState([]);
   const [WishList, setWishList] = useState([]);
@@ -101,9 +103,12 @@ export default function Home() {
           sortOption, setSortOption, sortOptionValue1,
           setSortOptionValue1, sortOptionValue2, setSortOptionValue2
         }}>
+          
+        <SearchProductName.Provider value={{searchProduct, setSearchProduct}}>
         <div className="sidenav">
           <Sidebar />
         </div>
+        
         <div className="content">
           <Products 
             products={products} 
@@ -112,6 +117,7 @@ export default function Home() {
             >
           </Products>
           </div>
+          </SearchProductName.Provider>
         </ProductSortOption.Provider>
 
         <Footer />
