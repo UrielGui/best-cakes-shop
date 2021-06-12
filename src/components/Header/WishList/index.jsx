@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Styled from './Styled';
+import PriceProduct from '../Basket/Prices/PriceProduct.js';
 import { toast } from 'react-toastify';
 import { FaHeartBroken } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
@@ -32,7 +33,7 @@ export default function WishList(props) {
         {WishList.map((item) => (
           <div key={item.id}>
 
-            <Styled.TitleProduct>{item.name}</Styled.TitleProduct>
+            <Styled.TitleProduct>{item.name} - <PriceProduct itemsPrice={item.price} /> </Styled.TitleProduct>
               <Styled.ImageProduct src={item.image} alt="" />
 
             <Styled.WhistlistRemoveAdd onClick={() => onRemoveWishList(item)}
