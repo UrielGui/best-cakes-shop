@@ -48,8 +48,10 @@ export const flexSearch = styled.div`
 export const InputSearch = styled.input`
     width: 100%;
     padding: 5px;
+    border-radius: 10px 10px 0px 0px;
+    border: 0;
     :focus {
-        border: 2px #e91e63 solid;
+        border: 1px #e91e63 solid;
     }
 `
 
@@ -57,6 +59,7 @@ export const ButtonSearch = styled.button`
     width: 100%;
     padding: 5px;
     background-color: #e91e63;
+    border-radius: 0px 0px 10px 10px;
     :hover {
         opacity: 0.8;
     }
