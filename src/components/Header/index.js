@@ -68,6 +68,7 @@ export default function Header(props) {
             {showWishList !== true
               ? <WishList
                 WishList={props.WishList}
+                onAdd={props.onAdd}
                 onRemoveWishList={props.onRemoveWishList}
                 onEmptyWishList={props.onEmptyWishList}
                 showWishList={showWishList}

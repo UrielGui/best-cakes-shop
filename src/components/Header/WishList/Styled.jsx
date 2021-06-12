@@ -19,7 +19,7 @@ const CloseWishListIconAnimation = keyframes`
   }
 `;
 
-export const WhishList = styled.div`
+export const WishList = styled.div`
   height: 100%;
   width: 25%;
   padding: 20px;
@@ -57,15 +57,16 @@ export const ImageProduct = styled.img`
   max-height: 100px;
 `
 
-export const FavoritesDetailsRemove = styled.button`
+export const WhistlistRemoveAdd = styled.button`
   height: 23px;
   width: 20px;
   color: #fff;
   float: right;
+  margin-right: 10px;
   position: relative;
   top: 35px;
-  left: -100px;
-  background: ${redWhistList};
+  left: -50px;
+  background: ${props => props.add ? "green" : redWhistList};
   :hover {
     opacity: 0.8;
   }

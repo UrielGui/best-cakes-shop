@@ -1,11 +1,15 @@
 import React from 'react';
 import * as Styled from './Styled';
+import { toast } from 'react-toastify';
 import { FaHeartBroken } from "react-icons/fa";
+import { FaShoppingBasket } from "react-icons/fa";
 
-export default function WhishList(props) {
+export default function WishList(props) {
 
   const { showWishList } = props;
   const { setshowWishList } = props;
+
+  const addCartMsg = () => toast.success('Adicionado ao carrinho!');
 
   const { WishList, onRemoveWishList, onEmptyWishList } = props;
   const emptyWishList = (
@@ -17,7 +21,7 @@ export default function WhishList(props) {
     </React.Fragment>
   )
 
-  const WhishList = () => {
+  const WishListRender = () => {
     return (
       <React.Fragment>
         <Styled.CloseWishListIcon onClick={() => {
@@ -30,7 +34,14 @@ export default function WhishList(props) {
 
             <Styled.TitleProduct>{item.name}</Styled.TitleProduct>
               <Styled.ImageProduct src={item.image} alt="" />
-            <Styled.FavoritesDetailsRemove style={{float: 'right'}} onClick={() => onRemoveWishList(item)}>x</Styled.FavoritesDetailsRemove>
+
+            <Styled.WhistlistRemoveAdd onClick={() => onRemoveWishList(item)}
+            >x</Styled.WhistlistRemoveAdd>
+
+            <Styled.WhistlistRemoveAdd add onClick={() => 
+            {props.onAdd(item); onRemoveWishList(item); addCartMsg();}}
+            ><FaShoppingBasket /></Styled.WhistlistRemoveAdd>
+
             <Styled.FavoritesDetailsHr />
           </div>
         ))}
@@ -50,9 +61,9 @@ export default function WhishList(props) {
 
   return (
     <React.Fragment>
-      <Styled.WhishList wishListHeight1={props.left} wishListHeight2={props.left2}>
-        {WhishList()}
-      </Styled.WhishList>
+      <Styled.WishList wishListHeight1={props.left} wishListHeight2={props.left2}>
+        {WishListRender()}
+      </Styled.WishList>
     </React.Fragment>
   );
 }
