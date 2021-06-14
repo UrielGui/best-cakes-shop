@@ -23,8 +23,8 @@ export default function Header(props) {
               </a>
 
             </Styled.FlexHeaderLogo>
-            <Styled.FlexHeaderCart>
-              <Styled.Cart>
+            <Styled.FlexHeaderBasket>
+              <Styled.Basket>
                 <span style={{ cursor: "pointer" }} onClick={() => {
                   setshowWishList(showWishList === false);
                 }}>
@@ -40,19 +40,19 @@ export default function Header(props) {
                   setShowBasket(showBasket === false);
                 }}>
                   <FaShoppingBasket style={{ fontSize: "20px", color: "#fff" }} />
-                  {props.countCartItems ? (
-                    <Styled.CountCart>{props.countCartItems}</Styled.CountCart>
+                  {props.countbasketItems ? (
+                    <Styled.CountBasket>{props.countbasketItems}</Styled.CountBasket>
                   ) : (
-                    <Styled.CountCart>0</Styled.CountCart>
+                    <Styled.CountBasket>0</Styled.CountBasket>
                   )}
                 </span>
-              </Styled.Cart>
-            </Styled.FlexHeaderCart>
+              </Styled.Basket>
+            </Styled.FlexHeaderBasket>
             {showBasket !== true
               ? <Basket
-                cartItems={props.cartItems}
+                basketItems={props.basketItems}
                 onAdd={props.onAdd}
-                onEmptyCart={props.onEmptyCart}
+                onEmptyBasket={props.onEmptyBasket}
                 onRemove={props.onRemove}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
@@ -60,7 +60,7 @@ export default function Header(props) {
                 left2={75}
               ></Basket>
               : <Basket
-                cartItems={props.cartItems}
+                basketItems={props.basketItems}
                 left={75}
                 left2={100}
               ></Basket>

@@ -24,18 +24,18 @@ export const HeaderLogoImg = styled.img`
     height: 75px;
 `;
 
-export const FlexHeaderCart = styled.div`
+export const FlexHeaderBasket = styled.div`
     align-self: center;
     position: relative;
     top: -10px;
 `;
 
-export const Cart = styled.span`
+export const Basket = styled.span`
     position: relative;
     top: 10px;
 `;
 
-export const CountCart = styled.small`
+export const CountBasket = styled.small`
     background: #3ca78a;
     padding: 6px 6px 1px 7px;
     border-radius: 10px;

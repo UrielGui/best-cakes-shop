@@ -48,7 +48,7 @@ export const ButtonsProduct = styled.div`
     justify-content: center;
 `;
 
-export const ButtonAddtoCart = styled.button`
+export const ButtonAddtoBasket = styled.button`
     padding: 10px;
     background: #2e886f;
     color: #fff;
@@ -71,12 +71,12 @@ export const ButtonAddtoWishList = styled.button`
     }
 `;
 
-export const AddtoCartText = styled.span`
+export const AddtoBasketText = styled.span`
     position: relative;
     top: -5.5px;
 `;
 
-export const AddtoCartIcon = styled.span`
+export const AddtoBasketIcon = styled.span`
     font-size: 20px;
     color: #fff;
 `;

@@ -12,14 +12,14 @@ export default function Basket(props) {
   const { showBasket } = props;
   const { setShowBasket } = props;
 
-  const emptyCart = (
+  const emptyBasket = (
     <React.Fragment>
       <h3 style={{ textAlign: "center" }}>Carrinho Vazio!</h3>
       <Styled.EmptyBasket><MdRemoveShoppingCart /></Styled.EmptyBasket>
     </React.Fragment>
   );
-  const { cartItems, onAdd, onRemove, onEmptyCart } = props;
-  let itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
+  const { basketItems, onAdd, onRemove, onEmptyBasket } = props;
+  let itemsPrice = basketItems.reduce((a, c) => a + c.qty * c.price, 0);
 
   const taxPrice = itemsPrice / 80;
   const discount = itemsPrice / 50;
@@ -31,9 +31,9 @@ export default function Basket(props) {
           setShowBasket(showBasket === false);
         }}> X</Styled.CloseBasketIcon>
 
-        {cartItems.length === 0 && emptyCart}
+        {basketItems.length === 0 && emptyBasket}
 
-        {cartItems.map((item) => (
+        {basketItems.map((item) => (
           <div key={item.id}>
             <div>{item.name}</div>
             <Styled.BasketDetailsMargin />
@@ -44,7 +44,7 @@ export default function Basket(props) {
           </div>
         ))}
 
-        {cartItems.length !== 0 && (
+        {basketItems.length !== 0 && (
           <React.Fragment>
             <hr />
             <Styled.BasketDetailsMargin />
@@ -78,14 +78,14 @@ export default function Basket(props) {
             <Styled.BasketDetailsCheckout>
               <Styled.BasketDetailsButton empty
                 onClick={() => {
-                  onEmptyCart(cartItems);
+                  onEmptyBasket(basketItems);
                 }
                 }>Esvaziar Carrinho</Styled.BasketDetailsButton>
 
               <Styled.BasketDetailsButton float
                 onClick={() => {
                   alert('Pedido finalizado!');
-                  onEmptyCart(cartItems);
+                  onEmptyBasket(basketItems);
                   setShowBasket(showBasket === false);
                 }
                 }>Finalizar Pedido</Styled.BasketDetailsButton>

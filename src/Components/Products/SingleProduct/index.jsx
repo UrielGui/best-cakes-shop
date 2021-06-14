@@ -8,8 +8,8 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Product(props) {
 
-  const addCart = () => toast.success('Adicionado ao carrinho!');
-  const addWishList = () => toast.info('Adicionado aos favoritos!');
+  const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
+  const addWishListMsg = () => toast.info('Adicionado aos favoritos!');
 
   const { product, onAdd, onAddWishList } = props;
 
@@ -36,17 +36,15 @@ export default function Product(props) {
       </Styled.DetailsProduct>
 
       <Styled.ButtonsProduct>
-
-        <Styled.ButtonAddtoCart onClick={() => { onAdd(product); addCart(); }}>
-          <Styled.AddtoCartIcon>
+        <Styled.ButtonAddtoBasket onClick={() => { onAdd(product); addBasketMsg(); }}>
+          <Styled.AddtoBasketIcon>
             <FaShoppingBasket />
-          </Styled.AddtoCartIcon>
-          <Styled.AddtoCartText> Adicionar ao carrinho</Styled.AddtoCartText>
-        </Styled.ButtonAddtoCart>
+          </Styled.AddtoBasketIcon>
+          <Styled.AddtoBasketText> Adicionar ao carrinho</Styled.AddtoBasketText>
+        </Styled.ButtonAddtoBasket>
 
-        <Styled.ButtonAddtoWishList onClick={() => { onAddWishList(product); addWishList(); }}><FaRegHeart style={{ fontSize: "20px", color: "#fff" }} /></Styled.ButtonAddtoWishList>
+        <Styled.ButtonAddtoWishList onClick={() => { onAddWishList(product); addWishListMsg(); }}><FaRegHeart style={{ fontSize: "20px", color: "#fff" }} /></Styled.ButtonAddtoWishList>
       </Styled.ButtonsProduct>
-
     </Styled.Product>
   );
 }

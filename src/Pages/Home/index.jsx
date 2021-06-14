@@ -21,7 +21,7 @@ export default function Home() {
   const [sortOptionValue2, setSortOptionValue2] = useState("-1");
   const [searchProduct, setSearchProduct] = useState('');
 
-  const [cartItems, setCartItems] = useState([]);
+  const [basketItems, setBasketItems] = useState([]);
   const [WishList, setWishList] = useState([]);
 
   const onAddWishList = (product) => {
@@ -51,20 +51,20 @@ export default function Home() {
   };
 
   const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = basketItems.find((x) => x.id === product.id);
     if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
+      setBasketItems(
+        basketItems.map((x) =>
           x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
+      setBasketItems([...basketItems, { ...product, qty: 1 }]);
     }
   };
 
-  const onEmptyCart = (product) => {
-    setCartItems(cartItems.filter((x) => x.id = product.id));
+  const onEmptyBasket = (product) => {
+    setBasketItems(basketItems.filter((x) => x.id = product.id));
   }
 
   const onEmptyWishList = (product) => {
@@ -72,12 +72,12 @@ export default function Home() {
   }
 
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = basketItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setBasketItems(basketItems.filter((x) => x.id !== product.id));
     } else {
-      setCartItems(
-        cartItems.map((x) =>
+      setBasketItems(
+        basketItems.map((x) =>
           x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
@@ -87,15 +87,15 @@ export default function Home() {
   return (
     <div className="grid grid-template-areas">
       <Header 
-        cartItems={cartItems} 
+        basketItems={basketItems} 
         WishList={WishList} 
         onAdd={onAdd} 
         onRemove={onRemove} 
         onAddWishList={onAddWishList} 
         onRemoveWishList={onRemoveWishList} 
-        countCartItems={cartItems.length} 
+        countbasketItems={basketItems.length} 
         countWishList={WishList.length}
-        onEmptyCart={onEmptyCart}
+        onEmptyBasket={onEmptyBasket}
         onEmptyWishList={onEmptyWishList}
         />
         

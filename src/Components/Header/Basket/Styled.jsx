@@ -9,8 +9,8 @@ const openBasket = (basketHeight1, basketHeight2) => keyframes`
   }
 `;
 
-const blueCart = "#1e76e9";
-const redCart = "#e91e25";
+const blueBasket = "#1e76e9";
+const redBasket = "#e91e25";
 
 const CloseBasketIconAnimation = keyframes`
   from {
@@ -67,7 +67,7 @@ export const BasketDetailsAddRemove = styled.button`
   width: 20px;
   margin-right: 10px;
   color: #fff;
-  background: ${props => props.add ? blueCart : redCart};
+  background: ${props => props.add ? blueBasket : redBasket};
   :hover {
     opacity: 0.8;
   }
@@ -89,7 +89,7 @@ export const BasketDetailsMargin = styled.br`
 
 export const BasketDetailsButton = styled.button`
   padding: 10px;
-  background: ${props => props.empty ? redCart : blueCart};
+  background: ${props => props.empty ? redBasket : blueBasket};
   float: ${props => props.float ? "right" : ""};
   color: #fff;
   :hover {

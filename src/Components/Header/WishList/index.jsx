@@ -10,7 +10,7 @@ export default function WishList(props) {
   const { showWishList } = props;
   const { setshowWishList } = props;
 
-  const addCartMsg = () => toast.success('Adicionado ao carrinho!');
+  const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
 
   const { WishList, onRemoveWishList, onEmptyWishList } = props;
   const emptyWishList = (
@@ -39,9 +39,9 @@ export default function WishList(props) {
             <Styled.WhistlistRemoveAdd onClick={() => onRemoveWishList(item)}
             >x</Styled.WhistlistRemoveAdd>
 
-            <Styled.WhistlistRemoveAdd add onClick={() => 
-            {props.onAdd(item); onRemoveWishList(item); addCartMsg();}}
-            ><FaShoppingBasket /></Styled.WhistlistRemoveAdd>
+            <Styled.WhistlistRemoveAdd add onClick={() => {
+              props.onAdd(item);onRemoveWishList(item); addBasketMsg();
+              }}><FaShoppingBasket /></Styled.WhistlistRemoveAdd>
 
             <Styled.WishListDetailsHr />
           </div>
