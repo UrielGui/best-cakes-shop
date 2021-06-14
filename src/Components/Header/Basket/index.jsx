@@ -32,7 +32,7 @@ export default function Basket(props) {
       <React.Fragment>
         <Styled.CloseBasketIcon onClick={() => {
           setShowBasket(showBasket === true);
-          setShowBasketAnimation1(showBasketAnimation1 = 75);
+          setShowBasketAnimation1(showBasketAnimation1 = 0);
           setShowBasketAnimation2(showBasketAnimation2 = 100);
         }}> X</Styled.CloseBasketIcon>
 
@@ -104,7 +104,7 @@ export default function Basket(props) {
 
   return (
     <React.Fragment>
-      <Styled.Basket basketHeight1={props.left} basketHeight2={props.left2}>
+      <Styled.Basket basketWidth1={props.left} basketWidth2={props.left2}>
         {BasketList()}
       </Styled.Basket>
     </React.Fragment>

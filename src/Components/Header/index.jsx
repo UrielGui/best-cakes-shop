@@ -35,7 +35,7 @@ export default function Header(props) {
                 <span style={{ cursor: "pointer" }} onClick={() => {
                   setshowWishList(showWishList = false);
                   setShowWishListAnimation1(showWishListAnimation1 = 100)
-                  setShowWishListAnimation2(showWishListAnimation2 = 75)
+                  setShowWishListAnimation2(showWishListAnimation2 = 0)
                 }}>
                   <FaRegHeart style={{ fontSize: "20px", color: "#fff" }} />
                   {props.countWishList ? (
@@ -48,7 +48,7 @@ export default function Header(props) {
                 <span style={{ cursor: "pointer" }} onClick={() => {
                   setShowBasket(showBasket = false);
                   setShowBasketAnimation1(showBasketAnimation1 = 100)
-                  setShowBasketAnimation2(showBasketAnimation2 = 75)
+                  setShowBasketAnimation2(showBasketAnimation2 = 0)
                 }}>
                   <FaShoppingBasket style={{ fontSize: "20px", color: "#fff" }} />
                   {props.countbasketItems ? (

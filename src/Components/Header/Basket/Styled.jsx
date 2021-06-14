@@ -1,11 +1,11 @@
 import styled, { keyframes, css } from 'styled-components';
 
-const openBasket = (basketHeight1, basketHeight2) => keyframes`
+const openBasket = (basketWidth1, basketWidth2) => keyframes`
   from {
-    left: ${basketHeight1}%;
+    transform: translateX(${basketWidth1}%);
   }
   to {
-    left: ${basketHeight2}%;
+    transform: translateX(${basketWidth2}%);
   }
 `;
 
@@ -26,13 +26,25 @@ export const Basket = styled.div`
   width: 25%;
   padding: 20px;
   color: #fff;
+  top: 0;
+  right: 0;
   float: right;
   z-index: 999;
   position: fixed;
   background-color: #111;
   overflow-x: hidden;
   padding-top: 65px;
-  animation: ${({ basketHeight1, basketHeight2 }) => css`${openBasket(basketHeight1, basketHeight2)} 0.5s linear forwards;`};
+  animation: ${({ basketWidth1, basketWidth2 }) => css`${openBasket(basketWidth1, basketWidth2)} 0.5s linear forwards;`};
+
+  @media(max-width: 1125px) {
+    width: 30%;
+  }
+  @media(max-width: 945px) {
+    width: 40%;
+  }
+  @media(max-width: 705px) {
+    width: 100%
+  }
 `;
 
 export const CloseBasketIcon = styled.span`

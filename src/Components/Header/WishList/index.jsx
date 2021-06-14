@@ -30,7 +30,7 @@ export default function WishList(props) {
       <React.Fragment>
         <Styled.CloseWishListIcon onClick={() => {
           setshowWishList(showWishList === true);
-          setShowWishListAnimation1(showWishListAnimation1 = 75);
+          setShowWishListAnimation1(showWishListAnimation1 = 0);
           setShowWishListAnimation2(showWishListAnimation2 = 100);
         }}> X</Styled.CloseWishListIcon>
 
@@ -67,7 +67,7 @@ export default function WishList(props) {
 
   return (
     <React.Fragment>
-      <Styled.WishList wishListHeight1={props.left} wishListHeight2={props.left2}>
+      <Styled.WishList wishListWidth1={props.left} wishListWidth2={props.left2}>
         {WishListRender()}
       </Styled.WishList>
     </React.Fragment>

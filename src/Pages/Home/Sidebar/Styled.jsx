@@ -52,7 +52,7 @@ export const flexSearch = styled.div`
 
 export const InputSearch = styled.input`
     width: 100%;
-    padding: 5px;
+    padding: 7px;
     border-radius: 10px 10px 0px 0px;
     border: 0;
     :focus {

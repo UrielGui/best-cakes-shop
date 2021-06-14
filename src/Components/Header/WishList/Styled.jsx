@@ -1,14 +1,13 @@
 import styled, { keyframes, css } from 'styled-components';
 
-const OpenCloseWishList = (wishListHeight1, wishListHeight2) => keyframes`
+const OpenCloseWishList = (wishListWidth1, wishListWidth2) => keyframes`
   from {
-    left: ${wishListHeight1}%;
+    transform: translateX(${wishListWidth1}%);
   }
   to {
-    left: ${wishListHeight2}%;
+    transform: translateX(${wishListWidth2}%);
   }
 `;
-const redWhistList = "#e91e25";
 
 const CloseWishListIconAnimation = keyframes`
   from {
@@ -18,6 +17,8 @@ const CloseWishListIconAnimation = keyframes`
     transform: rotateZ(180deg);
   }
 `;
+
+const redWhistList = "#e91e25";
 
 export const WishList = styled.div`
   height: 100%;
@@ -30,9 +31,19 @@ export const WishList = styled.div`
   z-index: 999;
   position: fixed;
   background-color: #111;
-  overflow-x: hidden;
+  overflow-x: hidden; 
   padding-top: 65px;
-  animation: ${({ wishListHeight1, wishListHeight2 }) => css`${OpenCloseWishList(wishListHeight1, wishListHeight2)} 0.5s linear forwards;`};
+  animation: ${({ wishListWidth1, wishListWidth2 }) => css`${OpenCloseWishList(wishListWidth1, wishListWidth2)} 0.5s linear forwards;`};
+  
+  @media(max-width: 1125px) {
+    width: 30%;
+  }
+  @media(max-width: 945px) {
+    width: 40%;
+  }
+  @media(max-width: 705px) {
+    width: 100%
+  }
 `;
 
 export const CloseWishListIcon = styled.span`
@@ -55,6 +66,12 @@ export const TitleProduct = styled.h4`
 export const ImageProduct = styled.img`
   width: 50%;
   max-height: 100px;
+  @media(max-width: 705px) {
+    width: 30%
+  }
+  @media(max-width: 500px) {
+    width: 50%
+  }
 `
 
 export const WhistlistRemoveAdd = styled.button`
