@@ -50,7 +50,7 @@ export default function Home() {
     }
   };
 
-  const onAdd = (product) => {
+  const onAddBasket = (product) => {
     const exist = basketItems.find((x) => x.id === product.id);
     if (exist) {
       setBasketItems(
@@ -89,7 +89,7 @@ export default function Home() {
       <Header 
         basketItems={basketItems} 
         WishList={WishList} 
-        onAdd={onAdd} 
+        onAddBasket={onAddBasket} 
         onRemove={onRemove} 
         onAddWishList={onAddWishList} 
         onRemoveWishList={onRemoveWishList} 
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="content">
           <Products 
             products={products} 
-            onAdd={onAdd} 
+            onAddBasket={onAddBasket} 
             onAddWishList={onAddWishList}
             >
           </Products>

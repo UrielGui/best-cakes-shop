@@ -18,7 +18,7 @@ export default function Basket(props) {
       <Styled.EmptyBasket><MdRemoveShoppingCart /></Styled.EmptyBasket>
     </React.Fragment>
   );
-  const { basketItems, onAdd, onRemove, onEmptyBasket } = props;
+  const { basketItems, onAddBasket, onRemove, onEmptyBasket } = props;
   let itemsPrice = basketItems.reduce((a, c) => a + c.qty * c.price, 0);
 
   const taxPrice = itemsPrice / 80;
@@ -38,7 +38,7 @@ export default function Basket(props) {
             <div>{item.name}</div>
             <Styled.BasketDetailsMargin />
             <Styled.BasketDetailsAddRemove onClick={() => onRemove(item)}>-</Styled.BasketDetailsAddRemove>
-            <Styled.BasketDetailsAddRemove add onClick={() => onAdd(item)}>+</Styled.BasketDetailsAddRemove>
+            <Styled.BasketDetailsAddRemove add onClick={() => onAddBasket(item)}>+</Styled.BasketDetailsAddRemove>
             {<span style={{ float: "right" }}>{item.qty}x <PriceProduct itemsPrice={item.price} /></span>}
             <Styled.BasketDetailsMargin /><Styled.BasketDetailsMargin />
           </div>

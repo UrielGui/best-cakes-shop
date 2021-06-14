@@ -11,7 +11,7 @@ export default function Product(props) {
   const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
   const addWishListMsg = () => toast.info('Adicionado aos favoritos!');
 
-  const { product, onAdd, onAddWishList } = props;
+  const { product, onAddBasket, onAddWishList } = props;
 
   return (
 
@@ -36,7 +36,7 @@ export default function Product(props) {
       </Styled.DetailsProduct>
 
       <Styled.ButtonsProduct>
-        <Styled.ButtonAddtoBasket onClick={() => { onAdd(product); addBasketMsg(); }}>
+        <Styled.ButtonAddtoBasket onClick={() => { onAddBasket(product); addBasketMsg(); }}>
           <Styled.AddtoBasketIcon>
             <FaShoppingBasket />
           </Styled.AddtoBasketIcon>
