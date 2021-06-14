@@ -24,6 +24,19 @@ export default function Home() {
   const [basketItems, setBasketItems] = useState([]);
   const [WishList, setWishList] = useState([]);
 
+  const onAddBasket = (product) => {
+    const exist = basketItems.find((x) => x.id === product.id);
+    if (exist) {
+      setBasketItems(
+        basketItems.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setBasketItems([...basketItems, { ...product, qty: 1 }]);
+    }
+  };
+
   const onAddWishList = (product) => {
     const exist = WishList.find((x) => x.id === product.id);
     if (exist) {
@@ -50,28 +63,7 @@ export default function Home() {
     }
   };
 
-  const onAddBasket = (product) => {
-    const exist = basketItems.find((x) => x.id === product.id);
-    if (exist) {
-      setBasketItems(
-        basketItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setBasketItems([...basketItems, { ...product, qty: 1 }]);
-    }
-  };
-
-  const onEmptyBasket = (product) => {
-    setBasketItems(basketItems.filter((x) => x.id = product.id));
-  }
-
-  const onEmptyWishList = (product) => {
-    setWishList(WishList.filter((x) => x.id = product.id));
-  }
-
-  const onRemove = (product) => {
+  const onRemoveBasket = (product) => {
     const exist = basketItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
       setBasketItems(basketItems.filter((x) => x.id !== product.id));
@@ -84,13 +76,21 @@ export default function Home() {
     }
   };
 
+  const onEmptyBasket = (product) => {
+    setBasketItems(basketItems.filter((x) => x.id = product.id));
+  }
+
+  const onEmptyWishList = (product) => {
+    setWishList(WishList.filter((x) => x.id = product.id));
+  }
+
   return (
     <div className="grid grid-template-areas">
       <Header 
         basketItems={basketItems} 
         WishList={WishList} 
         onAddBasket={onAddBasket} 
-        onRemove={onRemove} 
+        onRemoveBasket={onRemoveBasket} 
         onAddWishList={onAddWishList} 
         onRemoveWishList={onRemoveWishList} 
         countbasketItems={basketItems.length} 

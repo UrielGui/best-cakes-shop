@@ -53,7 +53,7 @@ export default function Header(props) {
                 basketItems={props.basketItems}
                 onAddBasket={props.onAddBasket}
                 onEmptyBasket={props.onEmptyBasket}
-                onRemove={props.onRemove}
+                onRemoveBasket={props.onRemoveBasket}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
                 left={100}
