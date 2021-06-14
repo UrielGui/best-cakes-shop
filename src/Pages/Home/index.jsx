@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 // Context
-import { ProductSortOption } from '../../contexts';
-import { SearchProductName } from '../../contexts';
+import { ProductSortOption } from '../../Contexts';
+import { SearchProductName } from '../../Contexts';
 
 // Components
-import Header from '../../components/Header';
-import Footer from '../../components/Footer'
-import Products from '../../components/Products';
+import Header from '../../Components/Header';
+import Footer from '../../Components/Footer'
+import Products from '../../Components/Products';
 import Data from '../../Data';
 import Sidebar from './Sidebar'
 

@@ -2,8 +2,8 @@ import React, { useContext, useRef } from 'react';
 import * as Styled from './Styled';
 
 // Context
-import { ProductSortOption } from '../../../contexts';
-import { SearchProductName } from '../../../contexts';
+import { ProductSortOption } from '../../../Contexts';
+import { SearchProductName } from '../../../Contexts';
 
 import { BsSearch } from "react-icons/bs";
 import { AiOutlineArrowDown } from "react-icons/ai";

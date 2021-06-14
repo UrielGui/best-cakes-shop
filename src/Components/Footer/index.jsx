@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './Styled';
-import { Container } from '../../styles/Globals';
+import { Container } from '../../Styles/Globals';
 
 export default function Footer() {
     return (
