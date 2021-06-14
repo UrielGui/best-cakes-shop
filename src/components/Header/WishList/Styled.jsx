@@ -72,7 +72,7 @@ export const WhistlistRemoveAdd = styled.button`
   }
 `;
 
-export const FavoritesDetailsHr = styled.hr`
+export const WishListDetailsHr = styled.hr`
   margin-top: 10px;
   margin-bottom: 10px;
 `

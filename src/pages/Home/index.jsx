@@ -24,7 +24,7 @@ export default function Home() {
   const [cartItems, setCartItems] = useState([]);
   const [WishList, setWishList] = useState([]);
 
-  const onAddFavorites = (product) => {
+  const onAddWishList = (product) => {
     const exist = WishList.find((x) => x.id === product.id);
     if (exist) {
       setWishList(
@@ -91,7 +91,7 @@ export default function Home() {
         WishList={WishList} 
         onAdd={onAdd} 
         onRemove={onRemove} 
-        onAddFavorites={onAddFavorites} 
+        onAddWishList={onAddWishList} 
         onRemoveWishList={onRemoveWishList} 
         countCartItems={cartItems.length} 
         countWishList={WishList.length}
@@ -113,7 +113,7 @@ export default function Home() {
           <Products 
             products={products} 
             onAdd={onAdd} 
-            onAddFavorites={onAddFavorites}
+            onAddWishList={onAddWishList}
             >
           </Products>
           </div>

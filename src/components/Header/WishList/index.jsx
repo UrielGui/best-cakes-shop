@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Styled from './Styled';
-import PriceProduct from '../Basket/Prices/PriceProduct.js';
+import PriceProduct from '../Basket/Prices/PriceProduct';
 import { toast } from 'react-toastify';
 import { FaHeartBroken } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
@@ -43,7 +43,7 @@ export default function WishList(props) {
             {props.onAdd(item); onRemoveWishList(item); addCartMsg();}}
             ><FaShoppingBasket /></Styled.WhistlistRemoveAdd>
 
-            <Styled.FavoritesDetailsHr />
+            <Styled.WishListDetailsHr />
           </div>
         ))}
 

@@ -3,9 +3,15 @@ import styled from 'styled-components';
 export const Sidebar = styled.section`
     background: linear-gradient(180deg,#772064 38%,#3a0f2e 61%);
     height: 100%;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 20px 20px 0px 20px;
+    
+    @media(max-width: 945px) {
+    padding: 20px 140px 0px 140px;
+    background: #772064;
+  }
+  @media(max-width: 450px) {
+    padding: 20px 20px 0px 20px;
+  }
 `
 export const SidebarContainer = styled.div`
     background-color: azure;
@@ -18,9 +24,7 @@ export const SidebarRow = styled.div`
 `
 
 export const SideBarTitleContainer = styled.div`
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 10px;
+    padding: 20px 10px 20px 0px;
     background-color: #3a0f2e;
     margin-bottom: 10px;
     border-radius: ${props => props.borderRfull ? "20px 20px" : "20px 20px 0px 0px"};
@@ -39,7 +43,6 @@ export const FilterTextClick = styled.span `
 export const SideBarTitle = styled.h4`
     color: #fff;
     margin-bottom: ${props => props.mBottom ? "10px" : ""};
-
 `
 
 export const flexSearch = styled.div`
