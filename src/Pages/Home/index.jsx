@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 // Context
 import { ProductSortOption } from '../../Contexts';
 import { SearchProductName } from '../../Contexts';
+import { BasketOpenCloseAnimation } from '../../Contexts';
+import { WishListOpenCloseAnimation } from '../../Contexts';
 
 // Components
 import Header from '../../Components/Header';
@@ -20,6 +22,10 @@ export default function Home() {
   const [sortOptionValue1, setSortOptionValue1] = useState("1")
   const [sortOptionValue2, setSortOptionValue2] = useState("-1");
   const [searchProduct, setSearchProduct] = useState('');
+  let [showBasketAnimation1, setShowBasketAnimation1] = useState(null)
+  let [showBasketAnimation2, setShowBasketAnimation2] = useState(null)
+  let [showWishListAnimation1, setShowWishListAnimation1] = useState(null)
+  let [showWishListAnimation2, setShowWishListAnimation2] = useState(null)
 
   const [basketItems, setBasketItems] = useState([]);
   const [WishList, setWishList] = useState([]);
@@ -86,6 +92,14 @@ export default function Home() {
 
   return (
     <div className="grid grid-template-areas">
+      <WishListOpenCloseAnimation.Provider value={{
+        showWishListAnimation1, setShowWishListAnimation1,
+        showWishListAnimation2, setShowWishListAnimation2
+      }}>
+      <BasketOpenCloseAnimation.Provider value={{
+        showBasketAnimation1, setShowBasketAnimation1,
+        showBasketAnimation2, setShowBasketAnimation2
+      }}>
       <Header 
         basketItems={basketItems} 
         WishList={WishList} 
@@ -98,6 +112,8 @@ export default function Home() {
         onEmptyBasket={onEmptyBasket}
         onEmptyWishList={onEmptyWishList}
         />
+        </BasketOpenCloseAnimation.Provider>
+        </WishListOpenCloseAnimation.Provider>
         
         <ProductSortOption.Provider value={{
           sortOption, setSortOption, sortOptionValue1,

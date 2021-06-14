@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Styled from './Styled';
+import { BasketOpenCloseAnimation } from '../../../Contexts';
 import PriceProduct from './Prices/PriceProduct';
 import TaxPrice from './Prices/TaxPrice';
 import TotalPrice from './Prices/TotalPrice';
@@ -11,6 +12,8 @@ export default function Basket(props) {
 
   const { showBasket } = props;
   const { setShowBasket } = props;
+  let { showBasketAnimation1, setShowBasketAnimation1, 
+    showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation);
 
   const emptyBasket = (
     <React.Fragment>
@@ -28,7 +31,9 @@ export default function Basket(props) {
     return (
       <React.Fragment>
         <Styled.CloseBasketIcon onClick={() => {
-          setShowBasket(showBasket === false);
+          setShowBasket(showBasket === true);
+          setShowBasketAnimation1(showBasketAnimation1 = 75);
+          setShowBasketAnimation2(showBasketAnimation2 = 100);
         }}> X</Styled.CloseBasketIcon>
 
         {basketItems.length === 0 && emptyBasket}

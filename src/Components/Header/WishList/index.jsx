@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Styled from './Styled';
 import PriceProduct from '../Basket/Prices/PriceProduct';
+import { WishListOpenCloseAnimation } from '../../../Contexts';
 import { toast } from 'react-toastify';
 import { FaHeartBroken } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
@@ -9,6 +10,8 @@ export default function WishList(props) {
 
   const { showWishList } = props;
   const { setshowWishList } = props;
+  let { showWishListAnimation1, setShowWishListAnimation1, 
+    showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
 
   const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
 
@@ -26,7 +29,9 @@ export default function WishList(props) {
     return (
       <React.Fragment>
         <Styled.CloseWishListIcon onClick={() => {
-          setshowWishList(showWishList === false);
+          setshowWishList(showWishList === true);
+          setShowWishListAnimation1(showWishListAnimation1 = 75);
+          setShowWishListAnimation2(showWishListAnimation2 = 100);
         }}> X</Styled.CloseWishListIcon>
 
         {WishList.length === 0 && emptyWishList}

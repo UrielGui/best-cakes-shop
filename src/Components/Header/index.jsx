@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import * as Styled from './Styled';
 import { Container } from '../../Styles/Globals';
 import Basket from './Basket';
@@ -7,10 +7,17 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import Logo from "../../Images/logo.png";
 
+import { WishListOpenCloseAnimation } from '../../Contexts';
+import { BasketOpenCloseAnimation } from '../../Contexts';
+
 export default function Header(props) {
 
-  const [showBasket, setShowBasket] = useState(true);
-  const [showWishList, setshowWishList] = useState(true);
+  let [showBasket, setShowBasket] = useState(true);
+  let [showWishList, setshowWishList] = useState(true);
+  let { showWishListAnimation1, setShowWishListAnimation1, 
+    showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
+  let { showBasketAnimation1, setShowBasketAnimation1, 
+  showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation)
 
   return (
     <div className="nav">
@@ -26,7 +33,9 @@ export default function Header(props) {
             <Styled.FlexHeaderBasket>
               <Styled.Basket>
                 <span style={{ cursor: "pointer" }} onClick={() => {
-                  setshowWishList(showWishList === false);
+                  setshowWishList(showWishList = false);
+                  setShowWishListAnimation1(showWishListAnimation1 = 100)
+                  setShowWishListAnimation2(showWishListAnimation2 = 75)
                 }}>
                   <FaRegHeart style={{ fontSize: "20px", color: "#fff" }} />
                   {props.countWishList ? (
@@ -37,7 +46,9 @@ export default function Header(props) {
                 </span>
 
                 <span style={{ cursor: "pointer" }} onClick={() => {
-                  setShowBasket(showBasket === false);
+                  setShowBasket(showBasket = false);
+                  setShowBasketAnimation1(showBasketAnimation1 = 100)
+                  setShowBasketAnimation2(showBasketAnimation2 = 75)
                 }}>
                   <FaShoppingBasket style={{ fontSize: "20px", color: "#fff" }} />
                   {props.countbasketItems ? (
@@ -56,14 +67,10 @@ export default function Header(props) {
                 onRemoveBasket={props.onRemoveBasket}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
-                left={100}
-                left2={75}
+                left={showBasketAnimation1}
+                left2={showBasketAnimation2}
               ></Basket>
-              : <Basket
-                basketItems={props.basketItems}
-                left={75}
-                left2={100}
-              ></Basket>
+              : null
             }
             {showWishList !== true
               ? <WishList
@@ -73,14 +80,10 @@ export default function Header(props) {
                 onEmptyWishList={props.onEmptyWishList}
                 showWishList={showWishList}
                 setshowWishList={setshowWishList}
-                left={100}
-                left2={75}
+                left={showWishListAnimation1}
+                left2={showWishListAnimation2}
               ></WishList>
-              : <WishList
-                WishList={props.WishList}
-                left={75}
-                left2={100}
-              ></WishList>
+              : null
             }
           </Styled.FlexHeader>
         </Container>
