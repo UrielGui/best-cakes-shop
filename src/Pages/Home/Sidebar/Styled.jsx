@@ -37,7 +37,7 @@ export const SidebarContainerItem = styled.div`
 
 export const FilterTextClick = styled.span `
     cursor: pointer;
-    font-size: 12px;
+    font-size: 13px;
 `
 
 export const SideBarTitle = styled.h4`

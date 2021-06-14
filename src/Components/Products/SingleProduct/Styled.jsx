@@ -14,6 +14,10 @@ export const Product = styled.div`
     @media(max-width: 265px)  {
         padding: 20px 10px 20px 10px;
     }
+
+    @media (min-width: 1640px) {
+        width: 22rem;
+    }
 `;
 
 export const DetailsProduct = styled.div`

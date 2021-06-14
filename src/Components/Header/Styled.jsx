@@ -37,7 +37,7 @@ export const Basket = styled.span`
 
 export const CountBasket = styled.small`
     background: #3ca78a;
-    padding: 6px 6px 1px 7px;
+    padding: 4px 5px 1px 5px;
     border-radius: 10px;
     position: relative;
     top: -19px;
@@ -45,7 +45,7 @@ export const CountBasket = styled.small`
 
 export const CountWishList = styled.small`
     background: rgb(233, 30, 99);;
-    padding: 6px 6px 1px 7px;
+    padding: 4px 5px 1px 5px;
     border-radius: 10px;
     position: relative;
     top: -19px;
