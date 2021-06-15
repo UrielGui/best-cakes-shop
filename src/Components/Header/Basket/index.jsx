@@ -128,7 +128,9 @@ export default function Basket(props) {
                         onClick={() => {
                         alert('Pedido finalizado!');
                         onEmptyBasket(basketItems);
-                        setShowBasket(showBasket === false);
+                        setShowBasket(showBasket === true);
+                        setShowBasketAnimation1(showBasketAnimation1 = 0);
+                        setShowBasketAnimation2(showBasketAnimation2 = 100);
                         }
                         }>Finalizar Pedido</Styled.BasketDetailsButton>
                     </Styled.BasketDetailsCheckout>
