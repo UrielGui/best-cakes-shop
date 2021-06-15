@@ -13,8 +13,8 @@ export const FooterDiv = styled.div`
     @media (max-width: 945px) {
         justify-content: center;
     }
-`
+`;
 
 export const FooterAuthor = styled.span`
     font-size: 14px;
-`
+`;

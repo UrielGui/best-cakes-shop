@@ -6,4 +6,4 @@ export const BasketOpenCloseAnimation = createContext({});
 export const WishListOpenCloseAnimation = createContext({});
 export const ExistingItemWishListContext = createContext({});
 export const WishListContext = createContext({});
-export const BasketContext = createContext({});
+export const BasketContext = createContext({})

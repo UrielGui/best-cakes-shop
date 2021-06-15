@@ -8,10 +8,12 @@ export default function Footer() {
             <Styled.FooterStyle>
                 <Container>
                     <Styled.FooterDiv>
-                    <Styled.FooterAuthor>© 2021 - Desenvolvido por: Uriel Guimarães</Styled.FooterAuthor>
+                        <Styled.FooterAuthor>
+                            © 2021 - Desenvolvido por: Uriel Guimarães
+                        </Styled.FooterAuthor>
                     </Styled.FooterDiv>
                 </Container>
             </Styled.FooterStyle>
-            </div>
-);
+        </div>
+    );
 }

@@ -25,25 +25,25 @@ export default createGlobalStyle`
 	.grid {
 		display: grid;
 	}
-	
+
 	.nav {
 		grid-area: nav;
 	}
-	
+
 	.content {
 		grid-area: content;
         min-height: 100vh;
 	}
-	
+
 	.sidenav {
 		grid-area: sidenav;
 	}
-	
+
 	.footer {
 		grid-area: footer;
         position: sticky
 	}
-	
+
 	.grid-template-areas {
 		grid-template-columns: 20% 80% 0%;
         grid-template-rows: auto;
@@ -52,7 +52,7 @@ export default createGlobalStyle`
         "sidenav content"
         "footer footer";
 	}
-    
+
     body {
         background: linear-gradient(270deg,#772064 20%,#ffffff 48%);
     }
@@ -107,12 +107,11 @@ export default createGlobalStyle`
         "footer footer";
         }
     }
-    
 `;
 
 export const Container = styled.div`
-    padding: 0rem 3.75rem;
-    @media (max-width: 450px) {
-        padding: 0rem 1rem;
-    }
+	padding: 0rem 3.75rem;
+	@media (max-width: 450px) {
+		padding: 0rem 1rem;
+	}
 `;

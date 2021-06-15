@@ -9,10 +9,10 @@ export const FlexHeader = styled.div`
     display: flex;
     flex-wrap: wrap;
 
-    @media(max-width: 450px) {
-    flex-direction: column;
-    padding-bottom: 5px;
-  }
+    @media (max-width: 450px) {
+        flex-direction: column;
+        padding-bottom: 5px;
+    }
 `;
 
 export const FlexHeaderLogo = styled.div`
@@ -44,7 +44,7 @@ export const CountBasket = styled.small`
 `;
 
 export const CountWishList = styled.small`
-    background: rgb(233, 30, 99);;
+    background: rgb(233, 30, 99);
     padding: 4px 5px 1px 5px;
     border-radius: 10px;
     position: relative;

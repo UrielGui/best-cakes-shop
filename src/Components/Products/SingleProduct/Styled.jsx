@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 export const Product = styled.div`
-    background-image: linear-gradient(-218deg,#27061e 51%,#772060 96%);
+    background-image: linear-gradient(-218deg, #27061e 51%, #772060 96%);
     color: #fff;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 0 3px #0b012185, 0 0 5px #0b012185, 0 0 15px #0b012185, 0 0 40px #0b012185;
+    box-shadow: 0 0 3px #0b012185, 0 0 5px #0b012185, 0 0 15px #0b012185,
+        0 0 40px #0b012185;
     transition: all 0.4s ease-in-out;
     width: 18rem;
     margin-bottom: 40px;
     margin: 20px;
 
-    @media(max-width: 265px)  {
+    @media (max-width: 265px) {
         padding: 20px 10px 20px 10px;
     }
 
@@ -23,10 +24,9 @@ export const Product = styled.div`
 export const DetailsProduct = styled.div`
     margin: 20px 0px 10px 0px;
     text-align: center;
-    @media(max-width: 265px)  {
+    @media (max-width: 265px) {
         margin: 30px 0px 20px 0px;
     }
-    
 `;
 
 export const TitleProduct = styled.h3`
@@ -34,7 +34,7 @@ export const TitleProduct = styled.h3`
     height: 30px;
     margin-top: 5px;
 
-    @media(max-width: 350px)  {
+    @media (max-width: 350px) {
         font-size: 16px;
     }
 `;

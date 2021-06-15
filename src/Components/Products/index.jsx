@@ -9,21 +9,32 @@ import * as Styled from './Styled';
 export default function Main(props) {
     const { products, onAddWishList } = props;
     const { searchProduct } = useContext(SearchProductName);
-    const { sortOption, sortOptionValue1, sortOptionValue2 } = useContext(ProductSortOption);
+    const { sortOption, sortOptionValue1, sortOptionValue2 } =
+        useContext(ProductSortOption);
 
-    const items = products.sort((a, b) => a[sortOption] > b[sortOption] ? sortOptionValue1 : sortOptionValue2).filter((val) => {
-        if (searchProduct === "") {
-            return val;
-        }
-        else if (val.name.toLowerCase().includes(searchProduct.toLocaleLowerCase())) {
-            return val;
-        }
-        else {
-            return null;
-        }
-    })
+    const items = products
+        .sort((a, b) =>
+            a[sortOption] > b[sortOption] ? sortOptionValue1 : sortOptionValue2
+        )
+        .filter((val) => {
+            if (searchProduct === '') {
+                return val;
+            } else if (
+                val.name
+                    .toLowerCase()
+                    .includes(searchProduct.toLocaleLowerCase())
+            ) {
+                return val;
+            } else {
+                return null;
+            }
+        })
         .map((product) => (
-            <Product key={product.id} product={product} onAddWishList={onAddWishList} />
+            <Product
+                key={product.id}
+                product={product}
+                onAddWishList={onAddWishList}
+            />
         ));
 
     return (
@@ -31,10 +42,9 @@ export default function Main(props) {
             <div className="content">
                 <Styled.Products>
                     {items}
-                    {items.length === 0
-                        ? <h1>Ops! Nenhum resultado foi encontrado :/</h1>
-                        : null
-                    }
+                    {items.length === 0 ? (
+                        <h1>Ops! Nenhum resultado foi encontrado :/</h1>
+                    ) : null}
                 </Styled.Products>
             </div>
         </React.Fragment>

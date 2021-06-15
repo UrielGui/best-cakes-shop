@@ -5,76 +5,97 @@ import Price from '../Price';
 import * as Styled from './Styled';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaRegHeart } from "react-icons/fa";
-import { FaShoppingBasket } from "react-icons/fa";
+import { FaRegHeart } from 'react-icons/fa';
+import { FaShoppingBasket } from 'react-icons/fa';
 
 export default function Product(props) {
-
     const { product } = props;
 
-    const {basketItems, setBasketItems} = useContext(BasketContext);
+    const { basketItems, setBasketItems } = useContext(BasketContext);
 
     const onAddBasket = (product) => {
         const exist = basketItems.find((x) => x.id === product.id);
         if (exist) {
-          setBasketItems(
-            basketItems.map((x) =>
-              x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-            )
-          );
+            setBasketItems(
+                basketItems.map((x) =>
+                    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+                )
+            );
         } else {
-          setBasketItems([...basketItems, { ...product, qty: 1 }]);
+            setBasketItems([...basketItems, { ...product, qty: 1 }]);
         }
-      };
+    };
 
-    let { existingItemWishList, WishList, setWishList,
-        setExistingItemWishList } = useContext(ExistingItemWishListContext);
+    let {
+        existingItemWishList,
+        WishList,
+        setWishList,
+        setExistingItemWishList,
+    } = useContext(ExistingItemWishListContext);
 
     const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
     const addWishListMsg = () => toast.info(existingItemWishList);
 
     const onAddWishList = (product) => {
-    const exist = WishList.find((x) => x.id === product.id);
+        const exist = WishList.find((x) => x.id === product.id);
         if (exist) {
-      setExistingItemWishList(existingItemWishList = "Produto já favoritado!");
-        }else {
-      setWishList([...WishList, { ...product, qty: 1 }]);
-      setExistingItemWishList(existingItemWishList = "Adicionado aos favoritos!");
-    }
-  };
+            setExistingItemWishList(
+                (existingItemWishList = 'Produto já favoritado!')
+            );
+        } else {
+            setWishList([...WishList, { ...product, qty: 1 }]);
+            setExistingItemWishList(
+                (existingItemWishList = 'Adicionado aos favoritos!')
+            );
+        }
+    };
 
-  return (
+    return (
+        <Styled.Product>
+            <ToastContainer
+                position="top-center"
+                transition={Slide}
+                autoClose={3000}
+                closeButton={false}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+            />
+            <Styled.ImgProduct src={product.image} alt={product.name} />
+            <Styled.TitleProduct>{product.name}</Styled.TitleProduct>
+            <Styled.DetailsProduct>
+                <Price product={product} />
+            </Styled.DetailsProduct>
 
-    <Styled.Product>
-      <ToastContainer
-        position="top-center"
-        transition={Slide}
-        autoClose={3000}
-        closeButton={false}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover={false}
-      />
-      <Styled.ImgProduct src={product.image} alt={product.name} />
-      <Styled.TitleProduct>{product.name}</Styled.TitleProduct>
-      <Styled.DetailsProduct>
-        <Price product={product} />
-      </Styled.DetailsProduct>
+            <Styled.ButtonsProduct>
+                <Styled.ButtonAddtoBasket
+                    onClick={() => {
+                        onAddBasket(product);
+                        addBasketMsg();
+                    }}
+                >
+                    <Styled.AddtoBasketIcon>
+                        <FaShoppingBasket />
+                    </Styled.AddtoBasketIcon>
+                    <Styled.AddtoBasketText>
+                        {' '}
+                        Adicionar ao carrinho
+                    </Styled.AddtoBasketText>
+                </Styled.ButtonAddtoBasket>
 
-      <Styled.ButtonsProduct>
-        <Styled.ButtonAddtoBasket onClick={() => { onAddBasket(product); addBasketMsg(); }}>
-          <Styled.AddtoBasketIcon>
-            <FaShoppingBasket />
-          </Styled.AddtoBasketIcon>
-          <Styled.AddtoBasketText> Adicionar ao carrinho</Styled.AddtoBasketText>
-        </Styled.ButtonAddtoBasket>
-
-        <Styled.ButtonAddtoWishList onClick={() => { onAddWishList(product); addWishListMsg(); }}><FaRegHeart style={{ fontSize: "20px", color: "#fff" }} /></Styled.ButtonAddtoWishList>
-      </Styled.ButtonsProduct>
-    </Styled.Product>
-  );
+                <Styled.ButtonAddtoWishList
+                    onClick={() => {
+                        onAddWishList(product);
+                        addWishListMsg();
+                    }}
+                >
+                    <FaRegHeart style={{ fontSize: '20px', color: '#fff' }} />
+                </Styled.ButtonAddtoWishList>
+            </Styled.ButtonsProduct>
+        </Styled.Product>
+    );
 }
