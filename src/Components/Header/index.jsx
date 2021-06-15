@@ -1,12 +1,16 @@
 import React, { useState, useContext } from 'react';
+
 import * as Styled from './Styled';
 import { Container } from '../../Styles/Globals';
-import Basket from './Basket';
-import WishList from './WishList';
-import { FaShoppingBasket } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa";
 import Logo from "../../Images/logo.png";
 
+import Basket from './Basket';
+import WishList from './WishList';
+
+import { FaShoppingBasket } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+
+// Context
 import { WishListOpenCloseAnimation } from '../../Contexts';
 import { BasketOpenCloseAnimation } from '../../Contexts';
 
@@ -64,8 +68,8 @@ export default function Header(props) {
                 basketItems={props.basketItems}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
-                left={showBasketAnimation1}
-                left2={showBasketAnimation2}
+                animation1={showBasketAnimation1}
+                animation2={showBasketAnimation2}
               ></Basket>
               : null
             }
@@ -74,8 +78,8 @@ export default function Header(props) {
                 WishList={props.WishList}
                 showWishList={showWishList}
                 setshowWishList={setshowWishList}
-                left={showWishListAnimation1}
-                left2={showWishListAnimation2}
+                animation1={showWishListAnimation1}
+                animation2={showWishListAnimation2}
               ></WishList>
               : null
             }

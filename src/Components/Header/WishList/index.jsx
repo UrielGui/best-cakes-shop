@@ -29,9 +29,8 @@ export default function WishList(props) {
           setBasketItems([...basketItems, { ...product, qty: 1 }]);
         }
       };
-
-    let { showWishListAnimation1, setShowWishListAnimation1,
-    showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
+    // eslint-disable-next-line no-unused-vars
+    let { showWishListAnimation1, setShowWishListAnimation1, showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
 
     const onEmptyWishList = (product) => {
         setWishList(WishList.filter((x) => x.id = product.id));
@@ -93,7 +92,7 @@ export default function WishList(props) {
 
     return (
         <React.Fragment>
-        <Styled.WishList wishListWidth1={props.left} wishListWidth2={props.left2}>
+        <Styled.WishList wishListWidth1={props.animation1} wishListWidth2={props.animation2}>
             {WishListRender()}
         </Styled.WishList>
         </React.Fragment>

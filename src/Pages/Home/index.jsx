@@ -61,12 +61,11 @@ export default function Home() {
         }}>
 
         <SearchProductName.Provider value={{searchProduct, setSearchProduct}}>
-
         <div className="sidenav">
           <Sidebar />
         </div>
         <ExistingItemWishListContext.Provider value={{existingItemWishList, WishList,
-            setWishList, setExistingItemWishList, existingItemWishList}}>
+            setWishList, setExistingItemWishList}}>
         <div className="content">
           <Products
             products={products}

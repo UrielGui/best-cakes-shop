@@ -24,7 +24,7 @@ export default function Sidebar() {
 
     return (
       <Styled.Sidebar>
-        
+
         <Styled.SidebarContainer>
               <Styled.SideBarTitleContainer borderRfull>
               <Styled.SidebarRow>
@@ -32,7 +32,7 @@ export default function Sidebar() {
                   Pesquisar
                 </Styled.SideBarTitle>
                 <Styled.flexSearch>
-                <Styled.InputSearch 
+                <Styled.InputSearch
                   type="text"
                   ref={refSearch}
                   placeholder="Pesquise aqui..."
@@ -46,7 +46,7 @@ export default function Sidebar() {
                 </Styled.SidebarRow>
               </Styled.SideBarTitleContainer>
               </Styled.SidebarContainer>
-        
+
           <Styled.SidebarContainer>
               <Styled.SideBarTitleContainer>
               <Styled.SidebarRow>

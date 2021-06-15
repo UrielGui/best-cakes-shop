@@ -1,20 +1,25 @@
 import React, { useContext } from 'react';
 import * as Styled from './Styled';
+
+// Context
 import { BasketOpenCloseAnimation } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
+
+// Prices
 import PriceProduct from './Prices/PriceProduct';
 import TaxPrice from './Prices/TaxPrice';
 import TotalPrice from './Prices/TotalPrice';
 import InstallmentsPrice from './Prices/PriceInstallments';
 import Discount from './Prices/Discount';
+
 import { MdRemoveShoppingCart } from 'react-icons/md';
 
 export default function Basket(props) {
 
     const { showBasket } = props;
     const { setShowBasket } = props;
-    let { showBasketAnimation1, setShowBasketAnimation1,
-    showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation);
+    // eslint-disable-next-line no-unused-vars
+    let { showBasketAnimation1, setShowBasketAnimation1, showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation);
 
     const {basketItems, setBasketItems} = useContext(BasketContext);
 
@@ -136,7 +141,7 @@ export default function Basket(props) {
 
     return (
         <React.Fragment>
-        <Styled.Basket basketWidth1={props.left} basketWidth2={props.left2}>
+        <Styled.Basket basketWidth1={props.animation1} basketWidth2={props.animation2}>
             {BasketList()}
         </Styled.Basket>
         </React.Fragment>
