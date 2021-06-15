@@ -32,7 +32,7 @@ export default function WishList(props) {
           setshowWishList(showWishList === true);
           setShowWishListAnimation1(showWishListAnimation1 = 0);
           setShowWishListAnimation2(showWishListAnimation2 = 100);
-        }}> X</Styled.CloseWishListIcon>
+        }}>X</Styled.CloseWishListIcon>
 
         {WishList.length === 0 && emptyWishList}
         {WishList.map((item) => (
@@ -42,7 +42,7 @@ export default function WishList(props) {
               <Styled.ImageProduct src={item.image} alt="" />
 
             <Styled.WhistlistRemoveAdd onClick={() => onRemoveWishList(item)}
-            >x</Styled.WhistlistRemoveAdd>
+            >X</Styled.WhistlistRemoveAdd>
 
             <Styled.WhistlistRemoveAdd add onClick={() => {
               props.onAdd(item);onRemoveWishList(item); addBasketMsg();

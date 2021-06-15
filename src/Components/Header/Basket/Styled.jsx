@@ -31,7 +31,8 @@ export const Basket = styled.div`
   float: right;
   z-index: 999;
   position: fixed;
-  background-color: #111;
+  background: linear-gradient(75deg,#772064 26%,#3a0f2e 56%);
+  box-shadow: 0 0 3px #0b012185, 0 0 5px #0b012185, 0 0 15px #0b012185, 0 0 40px #0b012185;
   overflow-x: hidden;
   padding-top: 65px;
   animation: ${({ basketWidth1, basketWidth2 }) => css`${openBasket(basketWidth1, basketWidth2)} 0.5s linear forwards;`};
@@ -78,6 +79,7 @@ export const BasketDetailsAddRemove = styled.button`
   height: 23px;
   width: 20px;
   margin-right: 10px;
+  border-radius: 5px;
   color: #fff;
   background: ${props => props.add ? blueBasket : redBasket};
   :hover {
@@ -93,6 +95,9 @@ export const BasketDetailsInstallments = styled.small`
 
 export const BasketDetailsCheckout = styled.div`
   padding-top: 20px;
+  @media(max-width: 295px) {
+    display: flex;
+  }
 `;
 
 export const BasketDetailsMargin = styled.br`
@@ -104,9 +109,10 @@ export const BasketDetailsButton = styled.button`
   background: ${props => props.empty ? redBasket : blueBasket};
   float: ${props => props.float ? "right" : ""};
   color: #fff;
+  border-radius: 7px;
   :hover {
     opacity: 0.8;
-}
+  }
 `;
 
 export const EmptyBasket = styled.span`
