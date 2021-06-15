@@ -14,9 +14,9 @@ export default function Header(props) {
 
   let [showBasket, setShowBasket] = useState(true);
   let [showWishList, setshowWishList] = useState(true);
-  let { showWishListAnimation1, setShowWishListAnimation1, 
+  let { showWishListAnimation1, setShowWishListAnimation1,
     showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
-  let { showBasketAnimation1, setShowBasketAnimation1, 
+  let { showBasketAnimation1, setShowBasketAnimation1,
   showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation)
 
   return (
@@ -63,7 +63,6 @@ export default function Header(props) {
               ? <Basket
                 basketItems={props.basketItems}
                 onAddBasket={props.onAddBasket}
-                onEmptyBasket={props.onEmptyBasket}
                 onRemoveBasket={props.onRemoveBasket}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
@@ -76,8 +75,6 @@ export default function Header(props) {
               ? <WishList
                 WishList={props.WishList}
                 onAddBasket={props.onAddBasket}
-                onRemoveWishList={props.onRemoveWishList}
-                onEmptyWishList={props.onEmptyWishList}
                 showWishList={showWishList}
                 setshowWishList={setshowWishList}
                 left={showWishListAnimation1}

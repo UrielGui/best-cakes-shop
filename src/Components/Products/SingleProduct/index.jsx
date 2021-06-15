@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ExistingItemWishListContext } from '../../../Contexts';
 import Price from '../Price';
 import * as Styled from './Styled';
 import { ToastContainer, toast, Slide } from 'react-toastify';
@@ -8,10 +9,23 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Product(props) {
 
-  const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
-  const addWishListMsg = () => toast.info('Adicionado aos favoritos!');
+    const { product, onAddBasket } = props;
 
-  const { product, onAddBasket, onAddWishList } = props;
+    let { existingItemWishList, WishList, setWishList,
+        setExistingItemWishList } = useContext(ExistingItemWishListContext);
+
+    const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
+    const addWishListMsg = () => toast.info(existingItemWishList);
+
+    const onAddWishList = (product) => {
+    const exist = WishList.find((x) => x.id === product.id);
+        if (exist) {
+      setExistingItemWishList(existingItemWishList = "Produto já favoritado!");
+        }else {
+      setWishList([...WishList, { ...product, qty: 1 }]);
+      setExistingItemWishList(existingItemWishList = "Adicionado aos favoritos!");
+    }
+  };
 
   return (
 
@@ -32,7 +46,7 @@ export default function Product(props) {
       <Styled.ImgProduct src={product.image} alt={product.name} />
       <Styled.TitleProduct>{product.name}</Styled.TitleProduct>
       <Styled.DetailsProduct>
-        <div><Price product={product} /></div>
+        <Price product={product} />
       </Styled.DetailsProduct>
 
       <Styled.ButtonsProduct>

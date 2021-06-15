@@ -5,6 +5,9 @@ import { ProductSortOption } from '../../Contexts';
 import { SearchProductName } from '../../Contexts';
 import { BasketOpenCloseAnimation } from '../../Contexts';
 import { WishListOpenCloseAnimation } from '../../Contexts';
+import { ExistingItemWishListContext } from '../../Contexts';
+import { WishListContext } from '../../Contexts';
+import { BasketContext } from '../../Contexts';
 
 // Components
 import Header from '../../Components/Header';
@@ -19,13 +22,14 @@ export default function Home() {
 
   // Global States
   const [sortOption, setSortOption] = useState("id");
-  const [sortOptionValue1, setSortOptionValue1] = useState("1")
+  const [sortOptionValue1, setSortOptionValue1] = useState("1");
   const [sortOptionValue2, setSortOptionValue2] = useState("-1");
   const [searchProduct, setSearchProduct] = useState('');
-  let [showBasketAnimation1, setShowBasketAnimation1] = useState(null)
-  let [showBasketAnimation2, setShowBasketAnimation2] = useState(null)
-  let [showWishListAnimation1, setShowWishListAnimation1] = useState(null)
-  let [showWishListAnimation2, setShowWishListAnimation2] = useState(null)
+  let [showBasketAnimation1, setShowBasketAnimation1] = useState(null);
+  let [showBasketAnimation2, setShowBasketAnimation2] = useState(null);
+  let [showWishListAnimation1, setShowWishListAnimation1] = useState(null);
+  let [showWishListAnimation2, setShowWishListAnimation2] = useState(null);
+  let [existingItemWishList, setExistingItemWishList] = useState(null);
 
   const [basketItems, setBasketItems] = useState([]);
   const [WishList, setWishList] = useState([]);
@@ -43,32 +47,6 @@ export default function Home() {
     }
   };
 
-  const onAddWishList = (product) => {
-    const exist = WishList.find((x) => x.id === product.id);
-    if (exist) {
-      setWishList(
-        WishList.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setWishList([...WishList, { ...product, qty: 1 }]);
-    }
-  };
-
-  const onRemoveWishList = (product) => {
-    const exist = WishList.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setWishList(WishList.filter((x) => x.id !== product.id));
-    } else {
-      setWishList(
-        WishList.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
-    }
-  };
-
   const onRemoveBasket = (product) => {
     const exist = basketItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
@@ -82,16 +60,9 @@ export default function Home() {
     }
   };
 
-  const onEmptyBasket = (product) => {
-    setBasketItems(basketItems.filter((x) => x.id = product.id));
-  }
-
-  const onEmptyWishList = (product) => {
-    setWishList(WishList.filter((x) => x.id = product.id));
-  }
-
   return (
     <div className="grid grid-template-areas">
+        <BasketContext.Provider value={{basketItems, setBasketItems}}>
       <WishListOpenCloseAnimation.Provider value={{
         showWishListAnimation1, setShowWishListAnimation1,
         showWishListAnimation2, setShowWishListAnimation2
@@ -100,42 +71,42 @@ export default function Home() {
         showBasketAnimation1, setShowBasketAnimation1,
         showBasketAnimation2, setShowBasketAnimation2
       }}>
-      <Header 
-        basketItems={basketItems} 
-        WishList={WishList} 
-        onAddBasket={onAddBasket} 
-        onRemoveBasket={onRemoveBasket} 
-        onAddWishList={onAddWishList} 
-        onRemoveWishList={onRemoveWishList} 
-        countbasketItems={basketItems.length} 
+        <WishListContext.Provider value={{WishList, setWishList}}>
+      <Header
+        basketItems={basketItems}
+        WishList={WishList}
+        onAddBasket={onAddBasket}
+        onRemoveBasket={onRemoveBasket}
+        countbasketItems={basketItems.length}
         countWishList={WishList.length}
-        onEmptyBasket={onEmptyBasket}
-        onEmptyWishList={onEmptyWishList}
         />
+        </WishListContext.Provider>
         </BasketOpenCloseAnimation.Provider>
         </WishListOpenCloseAnimation.Provider>
-        
+        </BasketContext.Provider>
+
         <ProductSortOption.Provider value={{
           sortOption, setSortOption, sortOptionValue1,
           setSortOptionValue1, sortOptionValue2, setSortOptionValue2
         }}>
-          
+
         <SearchProductName.Provider value={{searchProduct, setSearchProduct}}>
+
         <div className="sidenav">
           <Sidebar />
         </div>
-        
+        <ExistingItemWishListContext.Provider value={{existingItemWishList, WishList,
+            setWishList, setExistingItemWishList, existingItemWishList}}>
         <div className="content">
-          <Products 
-            products={products} 
-            onAddBasket={onAddBasket} 
-            onAddWishList={onAddWishList}
+          <Products
+            products={products}
+            onAddBasket={onAddBasket}
             >
           </Products>
           </div>
+          </ExistingItemWishListContext.Provider>
           </SearchProductName.Provider>
         </ProductSortOption.Provider>
-
         <Footer />
     </div>
   );
