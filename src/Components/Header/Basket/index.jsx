@@ -16,7 +16,33 @@ export default function Basket(props) {
     let { showBasketAnimation1, setShowBasketAnimation1,
     showBasketAnimation2, setShowBasketAnimation2 } = useContext(BasketOpenCloseAnimation);
 
-    const {basketItems, setBasketItems} = useContext(BasketContext)
+    const {basketItems, setBasketItems} = useContext(BasketContext);
+
+    const onRemoveBasket = (product) => {
+        const exist = basketItems.find((x) => x.id === product.id);
+        if (exist.qty === 1) {
+          setBasketItems(basketItems.filter((x) => x.id !== product.id));
+        } else {
+          setBasketItems(
+            basketItems.map((x) =>
+              x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+            )
+          );
+        }
+      };
+
+      const onAddBasket = (product) => {
+        const exist = basketItems.find((x) => x.id === product.id);
+        if (exist) {
+          setBasketItems(
+            basketItems.map((x) =>
+              x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+            )
+          );
+        } else {
+          setBasketItems([...basketItems, { ...product, qty: 1 }]);
+        }
+      };
 
     const emptyBasket = (
         <React.Fragment>
@@ -24,7 +50,6 @@ export default function Basket(props) {
         <Styled.EmptyBasket><MdRemoveShoppingCart /></Styled.EmptyBasket>
         </React.Fragment>
     );
-    const { onAddBasket, onRemoveBasket } = props;
     let itemsPrice = basketItems.reduce((a, c) => a + c.qty * c.price, 0);
 
     const onEmptyBasket = (product) => {

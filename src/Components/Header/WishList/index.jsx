@@ -1,17 +1,35 @@
 import React, { useContext } from 'react';
 import * as Styled from './Styled';
 import PriceProduct from '../Basket/Prices/PriceProduct';
+
+// Context
 import { WishListOpenCloseAnimation } from '../../../Contexts';
 import { WishListContext } from '../../../Contexts';
+import { BasketContext } from '../../../Contexts';
+
 import { toast } from 'react-toastify';
 import { FaHeartBroken } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
 
 export default function WishList(props) {
 
-    const { setWishList } = useContext(WishListContext)
-    const { showWishList } = props;
-    const { setshowWishList } = props;
+    const { setWishList } = useContext(WishListContext);
+    const { showWishList, setshowWishList } = props;
+    const { basketItems, setBasketItems } = useContext(BasketContext);
+
+    const onAddBasket = (product) => {
+        const exist = basketItems.find((x) => x.id === product.id);
+        if (exist) {
+          setBasketItems(
+            basketItems.map((x) =>
+              x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+            )
+          );
+        } else {
+          setBasketItems([...basketItems, { ...product, qty: 1 }]);
+        }
+      };
+
     let { showWishListAnimation1, setShowWishListAnimation1,
     showWishListAnimation2, setShowWishListAnimation2 } = useContext(WishListOpenCloseAnimation);
 
@@ -46,7 +64,6 @@ export default function WishList(props) {
             {WishList.length === 0 && emptyWishList}
             {WishList.map((item) => (
             <div key={item.id}>
-
                 <Styled.TitleProduct>{item.name} - <PriceProduct itemsPrice={item.price} /> </Styled.TitleProduct>
                 <Styled.ImageProduct src={item.image} alt="" />
 
@@ -54,7 +71,7 @@ export default function WishList(props) {
                 >X</Styled.WhistlistRemoveAdd>
 
                 <Styled.WhistlistRemoveAdd add onClick={() => {
-                props.onAddBasket(item);onRemoveWishList(item); addBasketMsg();
+                onAddBasket(item);onRemoveWishList(item); addBasketMsg();
                 }}><FaShoppingBasket /></Styled.WhistlistRemoveAdd>
 
                 <Styled.WishListDetailsHr />

@@ -62,8 +62,6 @@ export default function Header(props) {
             {showBasket !== true
               ? <Basket
                 basketItems={props.basketItems}
-                onAddBasket={props.onAddBasket}
-                onRemoveBasket={props.onRemoveBasket}
                 showBasket={showBasket}
                 setShowBasket={setShowBasket}
                 left={showBasketAnimation1}
@@ -74,7 +72,6 @@ export default function Header(props) {
             {showWishList !== true
               ? <WishList
                 WishList={props.WishList}
-                onAddBasket={props.onAddBasket}
                 showWishList={showWishList}
                 setshowWishList={setshowWishList}
                 left={showWishListAnimation1}

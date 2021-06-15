@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ExistingItemWishListContext } from '../../../Contexts';
+import { BasketContext } from '../../../Contexts';
 import Price from '../Price';
 import * as Styled from './Styled';
 import { ToastContainer, toast, Slide } from 'react-toastify';
@@ -9,7 +10,22 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Product(props) {
 
-    const { product, onAddBasket } = props;
+    const { product } = props;
+
+    const {basketItems, setBasketItems} = useContext(BasketContext);
+
+    const onAddBasket = (product) => {
+        const exist = basketItems.find((x) => x.id === product.id);
+        if (exist) {
+          setBasketItems(
+            basketItems.map((x) =>
+              x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+            )
+          );
+        } else {
+          setBasketItems([...basketItems, { ...product, qty: 1 }]);
+        }
+      };
 
     let { existingItemWishList, WishList, setWishList,
         setExistingItemWishList } = useContext(ExistingItemWishListContext);

@@ -30,35 +30,8 @@ export default function Home() {
   let [showWishListAnimation1, setShowWishListAnimation1] = useState(null);
   let [showWishListAnimation2, setShowWishListAnimation2] = useState(null);
   let [existingItemWishList, setExistingItemWishList] = useState(null);
-
   const [basketItems, setBasketItems] = useState([]);
   const [WishList, setWishList] = useState([]);
-
-  const onAddBasket = (product) => {
-    const exist = basketItems.find((x) => x.id === product.id);
-    if (exist) {
-      setBasketItems(
-        basketItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setBasketItems([...basketItems, { ...product, qty: 1 }]);
-    }
-  };
-
-  const onRemoveBasket = (product) => {
-    const exist = basketItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setBasketItems(basketItems.filter((x) => x.id !== product.id));
-    } else {
-      setBasketItems(
-        basketItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
-    }
-  };
 
   return (
     <div className="grid grid-template-areas">
@@ -75,15 +48,12 @@ export default function Home() {
       <Header
         basketItems={basketItems}
         WishList={WishList}
-        onAddBasket={onAddBasket}
-        onRemoveBasket={onRemoveBasket}
         countbasketItems={basketItems.length}
         countWishList={WishList.length}
         />
         </WishListContext.Provider>
         </BasketOpenCloseAnimation.Provider>
         </WishListOpenCloseAnimation.Provider>
-        </BasketContext.Provider>
 
         <ProductSortOption.Provider value={{
           sortOption, setSortOption, sortOptionValue1,
@@ -100,13 +70,13 @@ export default function Home() {
         <div className="content">
           <Products
             products={products}
-            onAddBasket={onAddBasket}
             >
           </Products>
           </div>
           </ExistingItemWishListContext.Provider>
           </SearchProductName.Provider>
         </ProductSortOption.Provider>
+        </BasketContext.Provider>
         <Footer />
     </div>
   );

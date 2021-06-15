@@ -7,7 +7,7 @@ import { SearchProductName } from '../../Contexts';
 import * as Styled from './Styled';
 
 export default function Main(props) {
-    const { products, onAddBasket, onAddWishList } = props;
+    const { products, onAddWishList } = props;
     const { searchProduct } = useContext(SearchProductName);
     const { sortOption, sortOptionValue1, sortOptionValue2 } = useContext(ProductSortOption);
 
@@ -23,7 +23,7 @@ export default function Main(props) {
         }
     })
         .map((product) => (
-            <Product key={product.id} product={product} onAddBasket={onAddBasket} onAddWishList={onAddWishList} />
+            <Product key={product.id} product={product} onAddWishList={onAddWishList} />
         ));
 
     return (
