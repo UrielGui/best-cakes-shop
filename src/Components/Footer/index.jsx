@@ -9,7 +9,9 @@ export default function Footer() {
                 <Container>
                     <Styled.FooterDiv>
                         <Styled.FooterAuthor>
-                            © 2021 - Desenvolvido por: Uriel Guimarães
+                            © 2021 - Desenvolvido por:&nbsp;
+							<a href="https://github.com/UrielGui/"
+							target="blank">Uriel Guimarães</a>
                         </Styled.FooterAuthor>
                     </Styled.FooterDiv>
                 </Container>

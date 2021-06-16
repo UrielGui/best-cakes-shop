@@ -30,6 +30,7 @@ export default createGlobalStyle`
     a {
         text-decoration: none;
         cursor: pointer;
+		color: #e91e63;
     }
 
     ul {
