@@ -24,29 +24,25 @@ export const HeaderLogoImg = styled.img`
     height: 75px;
 `;
 
-export const FlexHeaderBasket = styled.div`
+export const FlexHeaderRight = styled.div`
     align-self: center;
     position: relative;
     top: -10px;
 `;
 
-export const Basket = styled.span`
+export const HeaderRight = styled.span`
     position: relative;
     top: 10px;
 `;
 
-export const CountBasket = styled.small`
-    background: #3ca78a;
-    padding: 4px 5px 1px 5px;
+export const CountItem = styled.small`
+    background: ${(props) => props.basket ? '#3ca78a' : '#e91e63'};
+    height: 15px;
+    width: 19px;
     border-radius: 10px;
     position: relative;
     top: -19px;
-`;
-
-export const CountWishList = styled.small`
-    background: rgb(233, 30, 99);
-    padding: 4px 5px 1px 5px;
-    border-radius: 10px;
-    position: relative;
-    top: -19px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 `;

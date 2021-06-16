@@ -22,7 +22,27 @@ export default createGlobalStyle`
     background: #a01379;
     }
 
-	.grid {
+    body {
+        background: linear-gradient(270deg,#772064 20%,#ffffff 48%);
+        font-family: Open Sans, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    button {
+        text-decoration: none;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .grid {
 		display: grid;
 	}
 
@@ -52,25 +72,6 @@ export default createGlobalStyle`
         "sidenav content"
         "footer footer";
 	}
-
-    body {
-        background: linear-gradient(270deg,#772064 20%,#ffffff 48%);
-    }
-
-    a {
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    ul {
-        list-style: none;
-    }
-
-    button {
-        text-decoration: none;
-        border: 0;
-        cursor: pointer;
-    }
 
     .Toastify__toast--success {
         background: #2e886f;

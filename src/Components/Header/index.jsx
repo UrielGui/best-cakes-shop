@@ -43,8 +43,8 @@ export default function Header(props) {
                                 ></Styled.HeaderLogoImg>
                             </a>
                         </Styled.FlexHeaderLogo>
-                        <Styled.FlexHeaderBasket>
-                            <Styled.Basket>
+                        <Styled.FlexHeaderRight>
+                            <Styled.HeaderRight>
                                 <span
                                     style={{ cursor: 'pointer' }}
                                     onClick={() => {
@@ -63,15 +63,15 @@ export default function Header(props) {
                                             color: '#fff',
                                         }}
                                     />
-                                    {props.countWishList ? (
-                                        <Styled.CountWishList>
-                                            {props.countWishList}
-                                        </Styled.CountWishList>
-                                    ) : (
-                                        <Styled.CountWishList>
-                                            0
-                                        </Styled.CountWishList>
-                                    )}
+                                        {props.countWishList ? (
+                                            <Styled.CountItem>
+                                                {props.countWishList}
+                                            </Styled.CountItem>
+                                        ) : (
+                                            <Styled.CountItem>
+                                                0
+                                            </Styled.CountItem>
+                                        )}
                                 </span>
 
                                 <span
@@ -93,17 +93,17 @@ export default function Header(props) {
                                         }}
                                     />
                                     {props.countbasketItems ? (
-                                        <Styled.CountBasket>
+                                        <Styled.CountItem basket>
                                             {props.countbasketItems}
-                                        </Styled.CountBasket>
+                                        </Styled.CountItem>
                                     ) : (
-                                        <Styled.CountBasket>
+                                        <Styled.CountItem basket>
                                             0
-                                        </Styled.CountBasket>
+                                        </Styled.CountItem>
                                     )}
                                 </span>
-                            </Styled.Basket>
-                        </Styled.FlexHeaderBasket>
+                            </Styled.HeaderRight>
+                        </Styled.FlexHeaderRight>
                         {showBasket !== true ? (
                             <Basket
                                 basketItems={props.basketItems}
