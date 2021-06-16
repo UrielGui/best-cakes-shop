@@ -1,6 +1,6 @@
 # Best Cake's Shop
 
-![Best Cake's Shop](https://i.imgur.com/iTItCel.jpg)
+![Best Cake's Shop](https://i.imgur.com/CpXfy8n.png)
 
 This project was developed at the front end level. It is a website that aims to offer the possibility to buy and add cakes to wishlist, in a simple and fast way.
 
