@@ -7,7 +7,7 @@ import { SearchProductName } from '../../Contexts';
 import * as Styled from './Styled';
 
 export default function Main(props) {
-    const { products, onAddWishList } = props;
+    const { products } = props;
     const { searchProduct } = useContext(SearchProductName);
     const { sortOption, sortOptionValue1, sortOptionValue2 } =
         useContext(ProductSortOption);
@@ -33,7 +33,6 @@ export default function Main(props) {
             <Product
                 key={product.id}
                 product={product}
-                onAddWishList={onAddWishList}
             />
         ));
 

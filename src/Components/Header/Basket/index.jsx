@@ -5,7 +5,8 @@ import * as Styled from './Styled';
 import { BasketOpenCloseAnimation } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
 
-// Prices
+// Product
+import { onAddBasket } from '../../Header/Basket/OnAddBasket';
 import PriceProduct from './Prices/PriceProduct';
 import TaxPrice from './Prices/TaxPrice';
 import TotalPrice from './Prices/TotalPrice';
@@ -38,19 +39,6 @@ export default function Basket(props) {
                     x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
                 )
             );
-        }
-    };
-
-    const onAddBasket = (product) => {
-        const exist = basketItems.find((x) => x.id === product.id);
-        if (exist) {
-            setBasketItems(
-                basketItems.map((x) =>
-                    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-                )
-            );
-        } else {
-            setBasketItems([...basketItems, { ...product, qty: 1 }]);
         }
     };
 
@@ -98,7 +86,7 @@ export default function Basket(props) {
                         </Styled.BasketDetailsAddRemove>
                         <Styled.BasketDetailsAddRemove
                             add
-                            onClick={() => onAddBasket(item)}
+                            onClick={() => onAddBasket(item, basketItems, setBasketItems)}
                         >
                             +
                         </Styled.BasketDetailsAddRemove>

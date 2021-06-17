@@ -7,6 +7,7 @@ import { WishListOpenCloseAnimation } from '../../../Contexts';
 import { WishListContext } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
 
+import { onAddBasket } from '../Basket/OnAddBasket';
 import { toast } from 'react-toastify';
 import { FaHeartBroken } from 'react-icons/fa';
 import { FaShoppingBasket } from 'react-icons/fa';
@@ -16,18 +17,6 @@ export default function WishList(props) {
     const { showWishList, setshowWishList } = props;
     const { basketItems, setBasketItems } = useContext(BasketContext);
 
-    const onAddBasket = (product) => {
-        const exist = basketItems.find((x) => x.id === product.id);
-        if (exist) {
-            setBasketItems(
-                basketItems.map((x) =>
-                    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-                )
-            );
-        } else {
-            setBasketItems([...basketItems, { ...product, qty: 1 }]);
-        }
-    };
     let {
         // eslint-disable-next-line no-unused-vars
         showWishListAnimation1,
@@ -89,7 +78,7 @@ export default function WishList(props) {
                         <Styled.WhistlistRemoveAdd
                             add
                             onClick={() => {
-                                onAddBasket(item);
+                                onAddBasket(item, basketItems, setBasketItems);
                                 onRemoveWishList(item);
                                 addBasketMsg();
                             }}

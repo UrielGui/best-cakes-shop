@@ -8,23 +8,26 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaShoppingBasket } from 'react-icons/fa';
 
-export default function Product(props) {
-    const { product } = props;
+import { onAddBasket } from '../../Header/Basket/OnAddBasket';
 
+export default function Product(props) {
+
+    const { product } = props;
     const { basketItems, setBasketItems } = useContext(BasketContext);
 
-    const onAddBasket = (product) => {
-        const exist = basketItems.find((x) => x.id === product.id);
-        if (exist) {
-            setBasketItems(
-                basketItems.map((x) =>
-                    x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-                )
-            );
-        } else {
-            setBasketItems([...basketItems, { ...product, qty: 1 }]);
-        }
-    };
+	const onAddWishList = (product) => {
+		const exist = WishList.find((x) => x.id === product.id);
+		if (exist) {
+			setExistingItemWishList(
+				(existingItemWishList = 'Produto já favoritado!')
+			);
+		} else {
+			setWishList([...WishList, { ...product, qty: 1 }]);
+			setExistingItemWishList(
+				(existingItemWishList = 'Adicionado aos favoritos!')
+			);
+		}
+	};
 
     let {
         existingItemWishList,
@@ -35,20 +38,6 @@ export default function Product(props) {
 
     const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
     const addWishListMsg = () => toast.info(existingItemWishList);
-
-    const onAddWishList = (product) => {
-        const exist = WishList.find((x) => x.id === product.id);
-        if (exist) {
-            setExistingItemWishList(
-                (existingItemWishList = 'Produto já favoritado!')
-            );
-        } else {
-            setWishList([...WishList, { ...product, qty: 1 }]);
-            setExistingItemWishList(
-                (existingItemWishList = 'Adicionado aos favoritos!')
-            );
-        }
-    };
 
     return (
         <Styled.Product>
@@ -74,7 +63,7 @@ export default function Product(props) {
             <Styled.ButtonsProduct>
                 <Styled.ButtonAddtoBasket
                     onClick={() => {
-                        onAddBasket(product);
+                        onAddBasket(product, basketItems, setBasketItems);
                         addBasketMsg();
                     }}
                 >
@@ -89,8 +78,8 @@ export default function Product(props) {
 
                 <Styled.ButtonAddtoWishList
                     onClick={() => {
-                        onAddWishList(product);
-                        addWishListMsg();
+                        onAddWishList(product, WishList, setExistingItemWishList, existingItemWishList, setWishList);
+						addWishListMsg();
                     }}
                 >
                     <FaRegHeart style={{ fontSize: '20px', color: '#fff' }} />
