@@ -7,11 +7,7 @@ import { BasketContext } from '../../../Contexts';
 
 // Product
 import { onAddBasket } from '../../Header/Basket/OnAddBasket';
-import PriceProduct from './Prices/PriceProduct';
-import TaxPrice from './Prices/TaxPrice';
-import TotalPrice from './Prices/TotalPrice';
-import InstallmentsPrice from './Prices/PriceInstallments';
-import Discount from './Prices/Discount';
+import { formatPrice } from '../../../Utils/formatPrice';
 
 import { MdRemoveShoppingCart } from 'react-icons/md';
 
@@ -93,7 +89,7 @@ export default function Basket(props) {
                         {
                             <span style={{ float: 'right' }}>
                                 {item.qty}x{' '}
-                                <PriceProduct itemsPrice={item.price} />
+								{formatPrice(item.price)}
                             </span>
                         }
                         <Styled.BasketDetailsMargin />
@@ -110,7 +106,7 @@ export default function Basket(props) {
                                 Subtotal:
                             </Styled.BasketDetailsLeftList>
                             <Styled.BasketDetailsSub>
-                                <PriceProduct itemsPrice={itemsPrice} />{' '}
+								{formatPrice(itemsPrice)}
                             </Styled.BasketDetailsSub>
                         </Styled.BasketDetailsList>
 
@@ -120,7 +116,7 @@ export default function Basket(props) {
                             </Styled.BasketDetailsLeftList>
                             <Styled.BasketDetailsSub>
                                 {' '}
-                                <Discount itemsPrice={itemsPrice} />{' '}
+                                {formatPrice(discount)}{' '}
                             </Styled.BasketDetailsSub>
                         </Styled.BasketDetailsList>
 
@@ -130,7 +126,7 @@ export default function Basket(props) {
                             </Styled.BasketDetailsLeftList>
                             <Styled.BasketDetailsSub>
                                 {' '}
-                                <TaxPrice itemsPrice={itemsPrice} />{' '}
+								{formatPrice(taxPrice)}{' '}
                             </Styled.BasketDetailsSub>
                         </Styled.BasketDetailsList>
                         <Styled.BasketDetailsMargin />
@@ -141,11 +137,7 @@ export default function Basket(props) {
                                 Total:
                             </Styled.BasketDetailsLeftList>
                             <strong>
-                                <TotalPrice
-                                    itemsPrice={itemsPrice}
-                                    tax={taxPrice}
-                                    discount={discount}
-                                />
+                                {formatPrice(itemsPrice + taxPrice - discount)}{' '}
                             </strong>
                         </Styled.BasketDetailsList>
 
@@ -153,10 +145,7 @@ export default function Basket(props) {
                         <Styled.BasketDetailsInstallments>
                             {' '}
                             ou em até 10x de{' '}
-                            <InstallmentsPrice
-                                itemsPrice={itemsPrice}
-                                tax={taxPrice}
-                            />{' '}
+							{formatPrice(itemsPrice / 10 + taxPrice)}
                         </Styled.BasketDetailsInstallments>
                         <Styled.BasketDetailsInstallments font>
                             {' '}

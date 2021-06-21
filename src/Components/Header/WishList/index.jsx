@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import * as Styled from './Styled';
-import PriceProduct from '../Basket/Prices/PriceProduct';
+import { formatPrice } from '../../../Utils/formatPrice';
 
 // Context
 import { WishListOpenCloseAnimation } from '../../../Contexts';
@@ -65,7 +65,7 @@ export default function WishList(props) {
                     <div key={item.id}>
                         <Styled.TitleProduct>
                             {item.name} -{' '}
-                            <PriceProduct itemsPrice={item.price} />{' '}
+							{formatPrice(item.price)}{' '}
                         </Styled.TitleProduct>
                         <Styled.ImageProduct src={item.image} alt="" />
 

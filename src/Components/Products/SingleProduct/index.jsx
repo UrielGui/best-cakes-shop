@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ExistingItemWishListContext } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
-import Price from '../Price';
+import { formatPrice } from '../../../Utils/formatPrice';
 import * as Styled from './Styled';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -57,7 +57,7 @@ export default function Product(props) {
             <Styled.ImgProduct src={product.image} alt={product.name} />
             <Styled.TitleProduct>{product.name}</Styled.TitleProduct>
             <Styled.DetailsProduct>
-                <Price product={product} />
+				{formatPrice(product.price)}
             </Styled.DetailsProduct>
 
             <Styled.ButtonsProduct>
