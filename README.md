@@ -39,7 +39,7 @@ git clone https://github.com/UrielGui/best-cakes-shop.git
 npm install
 ```
 
-3. Runs the app
+3. Run the app
 
 ```bash
 npm start
