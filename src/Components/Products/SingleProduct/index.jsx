@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaRegHeart } from 'react-icons/fa';
 import { FaShoppingBasket } from 'react-icons/fa';
 
-import { onAddBasket } from '../../Header/Basket/OnAddBasket';
+import { onAddBasket } from '../../Header/Basket/BasketOptions';
 
 export default function Product(props) {
 

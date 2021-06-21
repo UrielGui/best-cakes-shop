@@ -94,7 +94,7 @@ export const BasketDetailsAddRemove = styled.button`
 export const BasketDetailsInstallments = styled.small`
     display: flex;
     justify-content: flex-end;
-    font-size: ${(props) => (props.font ? '0.6rem' : '0.8rem')}; ;
+    font-size: ${(props) => (props.font ? '0.6rem' : '0.8rem')};
 `;
 
 export const BasketDetailsCheckout = styled.div`

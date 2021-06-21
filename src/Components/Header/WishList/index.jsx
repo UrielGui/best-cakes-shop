@@ -7,15 +7,20 @@ import { WishListOpenCloseAnimation } from '../../../Contexts';
 import { WishListContext } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
 
-import { onAddBasket } from '../Basket/OnAddBasket';
-import { toast } from 'react-toastify';
-import { FaHeartBroken } from 'react-icons/fa';
+import {
+	onEmptyWishList,
+	onRemoveWishList,
+	addWishListMsg,
+	emptyWishList
+} from './WishListOptions';
+import { onAddBasket } from '../Basket/BasketOptions';
 import { FaShoppingBasket } from 'react-icons/fa';
 
 export default function WishList(props) {
     const { setWishList } = useContext(WishListContext);
     const { showWishList, setshowWishList } = props;
     const { basketItems, setBasketItems } = useContext(BasketContext);
+	const { WishList } = props;
 
     let {
         // eslint-disable-next-line no-unused-vars
@@ -26,25 +31,6 @@ export default function WishList(props) {
         setShowWishListAnimation2,
     } = useContext(WishListOpenCloseAnimation);
 
-    const onEmptyWishList = (product) => {
-        setWishList(WishList.filter((x) => (x.id = product.id)));
-    };
-    const onRemoveWishList = (product) => {
-        setWishList(WishList.filter((x) => x.id !== product.id));
-    };
-
-    const addBasketMsg = () => toast.success('Adicionado ao carrinho!');
-
-    const { WishList } = props;
-    const emptyWishList = (
-        <React.Fragment>
-            <h3 style={{ textAlign: 'center' }}>Sem favoritos :(</h3>
-            <Styled.EmptyWishList>
-                <FaHeartBroken />
-            </Styled.EmptyWishList>
-        </React.Fragment>
-    );
-
     const WishListRender = () => {
         return (
             <React.Fragment>
@@ -52,13 +38,9 @@ export default function WishList(props) {
                     onClick={() => {
                         setshowWishList(showWishList === true);
                         setShowWishListAnimation1((showWishListAnimation1 = 0));
-                        setShowWishListAnimation2(
-                            (showWishListAnimation2 = 100)
-                        );
+                        setShowWishListAnimation2((showWishListAnimation2 = 100));
                     }}
-                >
-                    X
-                </Styled.CloseWishListIcon>
+                >X</Styled.CloseWishListIcon>
 
                 {WishList.length === 0 && emptyWishList}
                 {WishList.map((item) => (
@@ -70,7 +52,7 @@ export default function WishList(props) {
                         <Styled.ImageProduct src={item.image} alt="" />
 
                         <Styled.WhistlistRemoveAdd
-                            onClick={() => onRemoveWishList(item)}
+                            onClick={() => onRemoveWishList(item, setWishList, WishList)}
                         >
                             X
                         </Styled.WhistlistRemoveAdd>
@@ -79,8 +61,8 @@ export default function WishList(props) {
                             add
                             onClick={() => {
                                 onAddBasket(item, basketItems, setBasketItems);
-                                onRemoveWishList(item);
-                                addBasketMsg();
+                                onRemoveWishList(item, setWishList, WishList);
+                                addWishListMsg();
                             }}
                         >
                             <FaShoppingBasket />
@@ -94,7 +76,7 @@ export default function WishList(props) {
                     <React.Fragment>
                         <Styled.WishListDetailsButton
                             onClick={() => {
-                                onEmptyWishList((WishList.length = 0));
+                                onEmptyWishList((WishList.length = 0), setWishList, WishList);
                             }}
                         >
                             Esvaziar Favoritos

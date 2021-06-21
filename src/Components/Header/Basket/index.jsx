@@ -6,10 +6,8 @@ import { BasketOpenCloseAnimation } from '../../../Contexts';
 import { BasketContext } from '../../../Contexts';
 
 // Product
-import { onAddBasket } from '../../Header/Basket/OnAddBasket';
+import { onAddBasket, onRemoveBasket, onEmptyBasket, emptyBasket } from './BasketOptions';
 import { formatPrice } from '../../../Utils/formatPrice';
-
-import { MdRemoveShoppingCart } from 'react-icons/md';
 
 export default function Basket(props) {
     const { showBasket } = props;
@@ -24,33 +22,7 @@ export default function Basket(props) {
     } = useContext(BasketOpenCloseAnimation);
 
     const { basketItems, setBasketItems } = useContext(BasketContext);
-
-    const onRemoveBasket = (product) => {
-        const exist = basketItems.find((x) => x.id === product.id);
-        if (exist.qty === 1) {
-            setBasketItems(basketItems.filter((x) => x.id !== product.id));
-        } else {
-            setBasketItems(
-                basketItems.map((x) =>
-                    x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-                )
-            );
-        }
-    };
-
-    const emptyBasket = (
-        <React.Fragment>
-            <h3 style={{ textAlign: 'center' }}>Carrinho Vazio!</h3>
-            <Styled.EmptyBasket>
-                <MdRemoveShoppingCart />
-            </Styled.EmptyBasket>
-        </React.Fragment>
-    );
     let itemsPrice = basketItems.reduce((a, c) => a + c.qty * c.price, 0);
-
-    const onEmptyBasket = (product) => {
-        setBasketItems(basketItems.filter((x) => (x.id = product.id)));
-    };
 
     const taxPrice = itemsPrice / 80;
     const discount = itemsPrice / 50;
@@ -70,13 +42,12 @@ export default function Basket(props) {
                 </Styled.CloseBasketIcon>
 
                 {basketItems.length === 0 && emptyBasket}
-
                 {basketItems.map((item) => (
                     <div key={item.id}>
                         <div>{item.name}</div>
                         <Styled.BasketDetailsMargin />
                         <Styled.BasketDetailsAddRemove
-                            onClick={() => onRemoveBasket(item)}
+                            onClick={() => onRemoveBasket(item, basketItems, setBasketItems)}
                         >
                             -
                         </Styled.BasketDetailsAddRemove>
@@ -115,7 +86,6 @@ export default function Basket(props) {
                                 Descontos:
                             </Styled.BasketDetailsLeftList>
                             <Styled.BasketDetailsSub>
-                                {' '}
                                 {formatPrice(discount)}{' '}
                             </Styled.BasketDetailsSub>
                         </Styled.BasketDetailsList>
@@ -125,7 +95,6 @@ export default function Basket(props) {
                                 Impostos:
                             </Styled.BasketDetailsLeftList>
                             <Styled.BasketDetailsSub>
-                                {' '}
 								{formatPrice(taxPrice)}{' '}
                             </Styled.BasketDetailsSub>
                         </Styled.BasketDetailsList>
@@ -143,22 +112,19 @@ export default function Basket(props) {
 
                         <Styled.BasketDetailsMargin />
                         <Styled.BasketDetailsInstallments>
-                            {' '}
                             ou em até 10x de{' '}
-							{formatPrice(itemsPrice / 10 + taxPrice)}
+							{formatPrice(itemsPrice / 10 )}
                         </Styled.BasketDetailsInstallments>
                         <Styled.BasketDetailsInstallments font>
-                            {' '}
                             (*com juros)
                         </Styled.BasketDetailsInstallments>
                         <br></br>
-
                         <hr />
                         <Styled.BasketDetailsCheckout>
                             <Styled.BasketDetailsButton
                                 empty
                                 onClick={() => {
-                                    onEmptyBasket(basketItems);
+                                    onEmptyBasket(basketItems, basketItems, setBasketItems);
                                 }}
                             >
                                 Esvaziar Carrinho
@@ -168,7 +134,7 @@ export default function Basket(props) {
                                 float
                                 onClick={() => {
                                     alert('Pedido finalizado!');
-                                    onEmptyBasket(basketItems);
+                                    onEmptyBasket(basketItems, basketItems, setBasketItems);
                                     setShowBasket(showBasket === true);
                                     setShowBasketAnimation1(
                                         (showBasketAnimation1 = 0)
