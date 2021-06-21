@@ -21,6 +21,7 @@ This project was developed at the front end level. It is a website that aims to 
 This project was developed with the following technologies:
 
 - [ReactJS](https://reactjs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [styled-components](https://styled-components.com/)
 - [React-Icons](https://react-icons.netlify.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/)
