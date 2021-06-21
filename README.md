@@ -4,6 +4,15 @@
 
 This project was developed at the front end level. It is a website that aims to offer the possibility to buy and add cakes to wishlist, in a simple and fast way.
 
+### Technologies
+
+This project was developed with the following technologies:
+
+- [ReactJS](https://reactjs.org/)
+- [styled-components](https://styled-components.com/)
+- [React-Icons](https://react-icons.netlify.com/)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/)
+
 ### Functionalities
 
 - Search for available cakes
