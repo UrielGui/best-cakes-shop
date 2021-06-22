@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
+import * as Styled from './Styled';
 import Product from './SingleProduct';
 
 import { ProductSortOption } from '../../Contexts';
 import { SearchProductName } from '../../Contexts';
 
-import * as Styled from './Styled';
-
 export default function Main(props) {
-    const { products } = props;
+	const { data, errorMsg } = props;
     const { searchProduct } = useContext(SearchProductName);
-    const { sortOption, sortOptionValue1, sortOptionValue2 } =
-        useContext(ProductSortOption);
+    const { sortOption,
+		sortOptionValue1, sortOptionValue2
+	} = useContext(ProductSortOption);
 
-    const items = products
-        .sort((a, b) =>
+    const items = data
+		.sort((a, b) =>
             a[sortOption] > b[sortOption] ? sortOptionValue1 : sortOptionValue2
         )
         .filter((val) => {
@@ -42,7 +42,7 @@ export default function Main(props) {
                 <Styled.Products>
                     {items}
                     {items.length === 0 ? (
-                        <h1>Ops! Nenhum resultado foi encontrado :/</h1>
+                        <h1> {errorMsg} </h1>
                     ) : null}
                 </Styled.Products>
             </div>

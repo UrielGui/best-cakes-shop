@@ -22,9 +22,11 @@ This project was developed with the following technologies:
 
 - [ReactJS](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Axios](https://www.npmjs.com/package/axios/)
 - [styled-components](https://styled-components.com/)
 - [React-Icons](https://react-icons.netlify.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/)
+- [mockAPI](https://www.mockapi.io/)
 
 ## :information_source: How To Use
 

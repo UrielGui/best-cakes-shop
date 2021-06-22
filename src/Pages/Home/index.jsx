@@ -12,12 +12,10 @@ import { BasketContext } from '../../Contexts';
 // Components
 import Header from '../../Components/Header';
 import Footer from '../../Components/Footer';
-import Products from '../../Components/Products';
-import Data from '../../Data';
+import Data from '../../Services/Api';
 import Sidebar from './Sidebar';
 
 export default function Home() {
-    const { products } = Data;
 
     // Global States
     const [sortOption, setSortOption] = useState('id');
@@ -89,7 +87,7 @@ export default function Home() {
                             }}
                         >
                             <div className="content">
-                                <Products products={products}></Products>
+                                <Data />
                             </div>
                         </ExistingItemWishListContext.Provider>
                     </SearchProductName.Provider>
