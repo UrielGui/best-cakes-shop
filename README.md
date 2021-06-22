@@ -1,6 +1,6 @@
 <h1 align="center">Best Cake's Shop</h1>
 
-This project was developed at the front end level. It is a website that aims to offer the possibility to buy and add cakes to wishlist, in a simple and fast way.
+<p align="center">Buy the best cakes in just a few clicks.</p>
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -9,6 +9,7 @@ This project was developed at the front end level. It is a website that aims to 
 </p>
 
 ![Best Cake's Shop](https://i.imgur.com/CpXfy8n.png)
+This project was developed at the front end level. It is a website that aims to offer the possibility to buy and add cakes to wishlist, in a simple and fast way.
 
 <p align="center">
   <a href="https://best-cakes-shop.vercel.app/" target="_blank">
@@ -23,10 +24,10 @@ This project was developed with the following technologies:
 - [ReactJS](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [Axios](https://www.npmjs.com/package/axios/)
-- [styled-components](https://styled-components.com/)
+- [Styled-Components](https://styled-components.com/)
 - [React-Icons](https://react-icons.netlify.com/)
 - [React-Toastify](https://fkhadra.github.io/react-toastify/)
-- [mockAPI](https://www.mockapi.io/)
+- [MockAPI](https://www.mockapi.io/)
 
 ## :information_source: How To Use
 
