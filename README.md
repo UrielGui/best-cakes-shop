@@ -9,7 +9,7 @@
 </p>
 
 ![Best Cake's Shop](https://i.imgur.com/CpXfy8n.png)
-This project was developed at the front end level. It is a website that aims to offer the possibility to buy and add cakes to wishlist, in a simple and fast way.
+This project offers all the essential features of an e-commerce at the front end level (cart, wishlist, sort and search).
 
 <p align="center">
   <a href="https://best-cakes-shop.vercel.app/" target="_blank">
