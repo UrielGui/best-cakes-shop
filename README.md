@@ -21,7 +21,7 @@ This project offers all the essential features of an e-commerce at the front end
 
 This project was developed with the following technologies:
 
-- [ReactJS](https://reactjs.org/)
+- [React JS](https://reactjs.org/)
 - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - [Axios](https://www.npmjs.com/package/axios/)
 - [Styled-Components](https://styled-components.com/)
